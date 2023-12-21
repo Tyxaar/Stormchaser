@@ -44,6 +44,8 @@ namespace Stormcat
             On.RainCycle.ctor += RainCycle_ctor;
             //Quest hooks
             On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
+
+            StormyPassageHooks.Apply();
         }
 
         private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
@@ -235,7 +237,7 @@ namespace Stormcat
             }
 
             //Logs
-            Debug.Log("Glide Cooldown" + data.glideCooldown);
+            //Debug.Log("Glide Cooldown" + data.glideCooldown);
             orig(self, eu);
         }
 
