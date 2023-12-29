@@ -78,7 +78,7 @@ namespace Stormcat
             }
         }
 
-        //Make Stormy's jumps big, including pole jumps
+        //Make Storm's jumps big, including pole jumps
         void Player_Jump(On.Player.orig_Jump orig, Player self)
         {
             if (self.slugcatStats.name == Stormchaser)
@@ -295,6 +295,8 @@ namespace Stormcat
         // Load any resources, such as sprites or sounds
         private void LoadResources(RainWorld rainWorld)
         {
+            //Futile.atlasManager.LoadImage("atlases/StormAtlas"); //LoadImage NOTABLY DIFFERENT THAN LoadAtlas
+            Futile.atlasManager.LoadAtlas("atlases/StormAtlas");
         }
     }
 }

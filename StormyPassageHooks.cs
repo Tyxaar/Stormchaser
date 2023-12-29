@@ -16,8 +16,8 @@ public static class StormyPassageHooks
         On.WinState.CreateAndAddTracker += BP_CreateAndAddTracker;
         On.WinState.PassageDisplayName += WinState_PassageDisplayName;
 
-        On.FSprite.ctor_string_bool += FSprite_ctor_string_bool;
-        On.FAtlasManager.GetElementWithName += FAtlasManager_GetElementWithName;
+        //On.FSprite.ctor_string_bool += FSprite_ctor_string_bool;
+        //On.FAtlasManager.GetElementWithName += FAtlasManager_GetElementWithName;
 
 		//TO COME LATER WHEN WE HAVE PASSAGE SCREEN ART
         //On.Menu.MenuScene.BuildScene += BP_BuildScene;
@@ -32,7 +32,7 @@ public static class StormyPassageHooks
     {
 		orig(self, owner);
 		//JUST COPIED AND PASTED FROM THE SCHOLAR
-        if (owner.tracker.ID == EnumExt_MyMod.Stormy)
+        if (owner.tracker.ID == EnumExt_MyMod.Storm)
         {
             self.customColors = new Color[self.listTracker.totItemsToWin];
             for (int l = 0; l < self.listTracker.myList.Count; l++)
@@ -92,7 +92,7 @@ public static class StormyPassageHooks
 
     private static string WinState_PassageDisplayName(On.WinState.orig_PassageDisplayName orig, WinState.EndgameID ID)
 	{
-		if (ID == EnumExt_MyMod.Stormy)
+		if (ID == EnumExt_MyMod.Storm)
 			return "The Storm";
 		else
 			return orig.Invoke(ID);
@@ -132,7 +132,7 @@ public static class StormyPassageHooks
         /*
         // ON CYCLE COMPLETED
         // WinState.IntegerTracker integerTracker = self.GetTracker(WinState.EndgameID.Survivor, true) as WinState.IntegerTracker;
-        WinState.IntegerTracker integerTracker5 = self.GetTracker(EnumExt_MyMod.Stormy, true) as WinState.IntegerTracker;
+        WinState.IntegerTracker integerTracker5 = self.GetTracker(EnumExt_MyMod.Storm, true) as WinState.IntegerTracker;
 		if (integerTracker5 != null && !BellyPlus.VisualsOnly())// && integerTracker.GoalAlreadyFullfilled)
 		{
 			int gluttonProgress = BellyPlus.bonusFood;
@@ -185,7 +185,7 @@ public static class StormyPassageHooks
         if (list.Count > 0) //WE DON'T NEED SURVIVOR - && integerTracker.GoalAlreadyFullfilled
 		{
             
-            WinState.ListTracker listTracker2 = self.GetTracker(EnumExt_MyMod.Stormy, true) as WinState.ListTracker;
+            WinState.ListTracker listTracker2 = self.GetTracker(EnumExt_MyMod.Storm, true) as WinState.ListTracker;
 			foreach (DataPearl.AbstractDataPearl.DataPearlType a in list)
 			{
 				int item2 = (int)a;
@@ -201,7 +201,7 @@ public static class StormyPassageHooks
 	{
 		WinState.EndgameTracker endgameTracker = null;
 		
-		if (ID == EnumExt_MyMod.Stormy)
+		if (ID == EnumExt_MyMod.Storm)
 		{
 			endgameTracker = new WinState.ListTracker(ID, 4); //HOW MANY PEARLS? 6?
 			Debug.Log("STORMY TRACKER CREATED! ");
@@ -237,13 +237,13 @@ public static class StormyPassageHooks
 	
 	public static class EnumExt_MyMod
 	{ // You can have multiple EnumExt_ classes in your assembly if you need multiple items with the same name for the different enum
-		public static WinState.EndgameID Stormy = new WinState.EndgameID("Stormy", true);
+		public static WinState.EndgameID Storm = new WinState.EndgameID("Storm", true);
     }
 	
 	
 	public static class EnumExt_MyScene
 	{
-		public static Menu.MenuScene.SceneID Endgame_Stormy = new Menu.MenuScene.SceneID("Endgame_Stormy", true);
+		public static Menu.MenuScene.SceneID Endgame_Storm = new Menu.MenuScene.SceneID("Endgame_Storm", true);
 	}
 	
 }
