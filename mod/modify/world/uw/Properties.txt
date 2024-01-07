@@ -1,0 +1,2 @@
+[FINDLINESTART]Room Setting Templates:
+[REPLACE_1]Room Setting Templates: Leg, Underhang, Wall, thunder, indoorsthunder

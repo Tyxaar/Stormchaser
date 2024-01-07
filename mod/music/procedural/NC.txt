@@ -1,0 +1,24 @@
+TH_NC - KICK : NEUTRAL
+TH_NC - KICKROOT : NEUTRAL
+TH_NC - SHAKER : NEUTRAL 
+TH_NC - HAT : NEUTRAL
+TH_NC - BASS : DANGER
+TH_NC - BASSROOT : DANGER 
+TH_NC - THUNDER : NEUTRAL 
+TH_NC - CLAP : NEUTRAL 
+TH_NC - ARP : DANGER 
+TH_NC - ARPROOT : DANGER 
+TH_NC - JUNK : NEUTRAL 
+TH_NC - JUNKROOT : NEUTRAL 
+TH_NC - WAWA : DANGER
+TH_NC - WAWAROOT : DANGER
+
+
+Layer : {Northern Canyon}TH_NC - KICK, {Facility Roots (Northern Intake)}TH_NC - KICKROOT
+Layer : {Northern Canyon}TH_NC - SHAKER, {Facility Roots (Northern Intake)}TH_NC - HAT
+Layer : {Northern Canyon}TH_NC - BASS, {Facility Roots (Northern Intake)}TH_NC - BASSROOT
+Layer : {Northern Canyon}TH_NC - THUNDER, {Facility Roots (Northern Intake)}TH_NC - ARPROOT
+Layer : {Northern Canyon}TH_NC - CLAP, {Facility Roots (Northern Intake)}TH_NC - JUNKROOT
+Layer : {Northern Canyon}TH_NC - ARP, {Facility Roots (Northern Intake)}TH_NC - WAWAROOT
+Layer : {Northern Canyon}TH_NC - JUNK
+Layer : {Northern Canyon}TH_NC - WAWA
