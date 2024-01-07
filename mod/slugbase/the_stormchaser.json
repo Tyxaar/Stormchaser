@@ -1,0 +1,49 @@
+{
+	"id": "Stormchaser",
+	"name": "The Stormchaser",
+	"description": "A wayfarer from northern latitudes, carried by the wind.<LINE>With weather growing violent by the day, your nerves will be put to the test.",
+	"features": {
+		"color": "00FF00",
+		"custom_colors": [
+			{"name": "Body", "story": "070D0D", "arena": ["FFFFFF", "FFCA4A", "FF7575", "070D0D"]},
+			{"name": "Eyes", "story": "00FF00", "arena": ["FF80A6", "FFFFFF", "5AFFBE", "00FF00"]},
+			{"name": "Tail", "story": "00FF00", "arena": ["FF80A6", "FFFFFF", "5AFFBE", "00FF00"]}
+		],
+
+		"weight": 0.9,
+		"climb_speed": 1.5,
+		"walk_speed": 1.5,
+		"throw_skill": [1],
+
+		"diet": {
+			"base": "White",
+			"plants": 0.5,
+			"overrides": {
+				"CicadaA": 0.5,
+				"CicadaB": 0.5,
+				"BigNeedleWorm": 0.5,
+				"EggBug": 1,
+				"DropBug": 0.5,
+				"TubeWorm": 0.5,
+				"BigSpider": 0.5,
+				"SpitterSpider": 0.5,
+				"DangleFruit": 1
+			}
+		},
+
+		"timeline_after": "Yellow",
+		"world_state": "White",
+		"cycle_length_min": 2.5,
+		"cycle_length_max": 10,
+
+		"the_mark": true,
+		"the_glow": true,
+		"start_room": "SS_AI",
+		
+		"select_menu_scene": "Slugcat_Stormchaser",
+		"select_menu_scene_ascended": "Ghost_Stormchaser",
+
+		"expedition_enabled": true,
+		"expedition_description": "An agile explorer gliding southwards once again.<LINE> Can you withstand weather growing out of control ?"
+	}
+}

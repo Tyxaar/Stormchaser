@@ -1,0 +1,15 @@
+{
+	"id": "Sleep_Stormchaser",
+	"scene_folder": "scenes/sleep screen - stormchaser",
+	"images": [
+		{ "name": "sleep screen - stormchaser - flat", "pos": [0, 100], "depth": -1, "flatmode": true },
+		{ "name": "sleep - 5", "pos": [664, 308], "depth": 2.0, "shader": "Normal" },
+		{ "name": "sleep - 4", "pos": [813, 167], "depth": 1.9, "shader": "Normal" },
+		{ "name": "sleep - 3", "pos": [845, 256], "depth": 1.7, "shader": "Normal" },
+		{ "name": "sleep - 2 - stormchaser", "pos": [792, 125], "depth": 1.6, "shader": "Normal" },
+		{ "name": "sleep - 1",    "pos": [767, 63], "depth": 1.2, "shader": "Normal" }
+	],
+	"idle_depths": [ 1.6 ],
+	"select_menu_pos": [0, 0],
+	"slugcat_depth": 1.6
+}
