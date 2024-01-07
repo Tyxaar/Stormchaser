@@ -1,0 +1,21 @@
+Template: NONE
+DangerType: Rain
+CeilingDrips: 0
+RainIntensity: 0
+RumbleIntensity: 0
+WaveSpeed: 0.5
+WaveLength: 1
+WaveAmplitude: 0
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Clouds: 0
+Grime: 0.2391304
+BkgDroneVolume: 0
+Palette: 30
+EffectColorA: 13
+EffectColorB: 2
+Effects: PixelShift-0.5-30-30, RoofTopView-1-20-20, DayNight-0.8043478-22-86, 
+PlacedObjects: DataPearl><3408.718><86.06303><66~292~0~0~UW~0, NoSpearStickZone><-33.07202><280.8413><-138~97, DayNightSettings><20.09833><592.4242><5~8.660254~35~10, DevToken><1402.695><168.8079><0~-72~0~0~0~~~0~0~0~1~0~0~0~1~0~0~0~1~0~0~0~1~0~0~0~1~0~0~0~1, 
+AmbientSounds: OMNI><AM_ENV-NatWind.ogg><833.3021><652.5293><0.5><1, OMNI><AM_ENV-LightWind.ogg><647.051><654.0204><0.5217391><0.9021739, SPOT><AM_ENV-WallHum.ogg><44.60425><480.4207><0.3152174><1><57.60425><26.42065><-213.3553><272.6447><0><0.4260871, OMNI><am_win-howlingwnd.ogg><741.3297><507.1451><0.5><1, 
+FadePalette: 42, 0, 0, 0, 0, 0, 0, 0, 0
+WetTerrain: OFF
