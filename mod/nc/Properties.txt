@@ -1,0 +1,7 @@
+
+overseersSpawnChance: 0.35
+overseersMin: 3
+overseersMax: 9
+Room Setting Templates: thunder, indoorsthunder, pumps, wallinside
+Subregion: Northern Canyon
+Subregion: Facility Roots (Northern Intake)
