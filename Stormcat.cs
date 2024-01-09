@@ -42,11 +42,27 @@ namespace Stormcat
             On.PlayerGraphics.Update += PlayerGraphics_Update;
             //Misc hooks
             On.RainCycle.ctor += RainCycle_ctor;
+            On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
             //Quest hooks
             On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
 
             StormyPassageHooks.Apply();
         }
+
+        public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
+        {
+            orig(self);
+            if (self.processActive && !self.GamePaused && self.cameras[0].room != null)
+            {
+                string myRoom = self.cameras[0].room.roomSettings.name.ToString();
+                if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
+                {
+                    self.cameras[0].screenShake += 0.1f;
+                }
+                self.cameras[0].screenShake += 0.2f;
+            }
+        }
+
 
         private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
         {
