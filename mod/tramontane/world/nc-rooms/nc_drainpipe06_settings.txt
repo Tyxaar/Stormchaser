@@ -1,0 +1,7 @@
+Template: NC_SettingsTemplate_wallinside
+DangerType: FloodAndRain
+RainIntensity: 0.6056044
+EffectColorA: 18
+PlacedObjects: LightFixture><1886.815><554.1588><RedLight~17.32051~-10~1, LightFixture><1280.015><462.3256><RedLight~17.32051~-10~8, LightFixture><78.76163><307.9325><RedLight~17.32051~-10~69, LightFixture><757.6293><540.6561><RedLight~17.32051~-10~79, LightFixture><1560.014><174.8833><RedLight~17.32051~-10~84, LightSource><175.4688><72.53687><0.07974409~EffectColor1~3.557281~270.75~-15.45419~143.5192~0~1~None~0~0, LightSource><986.989><65.72735><0.07974376~EffectColor1~7.826172~290.6708~50~86.60254~0~1~None~0~0, 
+AmbientSounds: SPOT><SO_WAT-OpenFlow.ogg><812.0706><489.5986><0.3066685><0.5267257><1782.123><251.908><-104.3668><-102.2324><0><0.4170638, OMNI><Mech Active.wav><617.8471><224.0422><0.1056041><1, SPOT><AM_SUB-BlankState.ogg><760.488><265.3764><0.1984021><1><540.062><351.3993><-312.824><-329.8991><0><0.1850659, OMNI><AM_IND-Factory01.ogg><754.0738><151.3557><0.1520041><1, OMNI><Deep Weird Wind.wav><474.1071><321.1815><0.1442712><1, 
+FadePalette: 566, 0.7810574, 0.8197239

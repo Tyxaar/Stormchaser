@@ -1,0 +1,10 @@
+Template: NONE
+Clouds: 1
+Grime: 0.25
+Palette: 331
+EffectColorA: 8
+EffectColorB: 21
+Effects: BkgOnlyLightning-0.5-20-20, 
+PlacedObjects: LightSource><326.3958><347.3293><0.1086956~EffectColor1~0~31~185~164.6025~0~1~None~0~0, LightSource><231.3508><368.3668><0.2065217~EffectColor1~-43~-33~50~86.60254~0~1~None~0~0, LightSource><588.325><392.4033><0.3043478~EffectColor1~-64~-131~82~-14.39746~0~0~None~0~0, LightSource><340.0598><225.4381><0.3043478~EffectColor1~20~119~45~-122.3975~0~0~None~0~0, LightSource><268.6428><389.8901><0.1086956~EffectColor1~1~25~-273~74.60254~0~1~None~0~0, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><738.6199><474.84><0.5><1, OMNI><am_env-natwind.ogg><739.3101><401.8093><0.5><1, OMNI><am_ind-midsex03.ogg><737.1995><547.4866><0.5><1.254348, OMNI><msc-structurestrain.ogg><741.1354><328.3528><0.1521739><1, OMNI><msc-lowgroans.ogg><743.6959><254.7095><0.5><1, OMNI><msc-unrelentingbreakage.ogg><742.0513><183.7729><0.5><1, OMNI><AM_RAIN-RollingThunder.ogg><564.8823><547.9><0.8043478><1, 
+FadePalette: 10, 0.8043478

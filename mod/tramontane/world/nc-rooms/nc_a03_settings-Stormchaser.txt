@@ -1,0 +1,6 @@
+Template: NONE
+Palette: 10
+EffectColorA: 2
+EffectColorB: 21
+PlacedObjects: LightSource><300.8><455.9985><0.1521739~EffectColor2~288~-321~309~-186.3975~1~0~None~0~0, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><721.3544><472.5794><0.5><1, OMNI><am_env-natwind.ogg><720.8597><397.1672><0.5><1, OMNI><am_ind-midsex03.ogg><720.8954><543.3873><0.5><1.254348, OMNI><msc-structurestrain.ogg><718.2469><324.7><0.6086956><1, OMNI><msc-lowgroans.ogg><721.0656><250.1727><0.5><1, 

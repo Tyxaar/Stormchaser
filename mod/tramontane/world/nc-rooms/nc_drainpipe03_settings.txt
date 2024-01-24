@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_pumps
+PlacedObjects: LightFixture><606.96><1992.867><RedLight~17.32051~-10~49, LightFixture><349.6423><1061.902><RedLight~17.32051~-10~70, LightFixture><611.6644><612.8004><RedLight~17.32051~-10~17, LightFixture><351.2581><189.8263><RedLight~17.32051~-10~56, 
+AmbientSounds: OMNI><SO_WAT-OpenFlow.ogg><727.4686><487.4882><0.4072><0.5545665, OMNI><Mech Active.wav><544.7925><424.6509><0.1056048><1, OMNI><AM_IND-12thFloor.ogg><558.1224><169.2121><0.5077329><1, SPOT><SO_WAT-OpenFlow.ogg><836.5481><152.7474><0.4381342><1><479.8732><2194.5><-35.35534><-35.35534><0><0.5098618, 
+FadePalette: 566, 0.8351902, 0.8661232, 0.8970564

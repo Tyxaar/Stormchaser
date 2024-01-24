@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_wallinside
+DangerType: None
+Grime: 0
+PlacedObjects: LightFixture><544.396><341.5334><RedLight~17.32051~-10~47, LightFixture><318.8674><99.05775><RedLight~17.32051~-10~20, 
+FadePalette: 566, 0.7501246

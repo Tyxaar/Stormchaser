@@ -1,0 +1,7 @@
+Template: SL_SettingsTemplate_Sewer
+Grime: 0.3065219
+EffectColorB: 6
+Effects: Darkness-0.4021739-257-0, DarkenLights-0.6086956-252-50, 
+PlacedObjects: LightFixture><778.4058><308.1254><RedLight~-80.67944~68~0, 
+AmbientSounds: SPOT><SO_IND-HVAC.ogg><713.5632><415.0713><0.2065217><1><778.5632><308.0713><-92.35535><-34.35535><0><0.1, 
+FadePalette: 8, 0.2934783

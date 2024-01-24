@@ -1,0 +1,4 @@
+Template: NONE
+Palette: 10
+EffectColorB: 21
+AmbientSounds: OMNI><am_env-lightwind.ogg><717.657><472.6261><0.5><1, OMNI><am_env-natwind.ogg><721.2748><398.0515><0.5><1, OMNI><am_ind-midsex03.ogg><713.6276><545.5959><0.5><1.254348, OMNI><msc-structurestrain.ogg><720.6968><324.0356><0.6086956><1, OMNI><msc-lowgroans.ogg><724.1707><254.3957><0.5><1, 

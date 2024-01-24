@@ -1,0 +1,2 @@
+Grime: 0.1086956
+PlacedObjects: PlayerPushback><2192.33><496.3167><-273~-6, LightSource><1467.652><-32.12015><0.2065217~Environment~-676~919~23~4.602539~1~1~None~0~0, 

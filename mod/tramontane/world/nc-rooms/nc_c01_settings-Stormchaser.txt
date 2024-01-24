@@ -1,0 +1,10 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Rain
+Grime: 0.25
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: Darkness-0.4021739-20-20, 
+PlacedObjects: LightBeam><551.2621><152.6996><-139~315~-26~337~127~0~-324~-112~0.3889372~0~0.97995~1~None~0~0, LightSource><483.5897><387.3897><0.4663106~EffectColor2~130~-313~50~86.60254~1~0~None~0~0, LightSource><1465.074><408.8105><0.4014329~EffectColor2~-391~-209~50~86.60254~1~0~None~0~0, LightSource><2383.935><387.5757><0.1086956~EffectColor2~183~-47~50~86.60254~1~0~None~0~0, DangleFruit><2811.189><270.4344><0~0~2~3, DangleFruit><2775.444><290.808><39~51~2~3, DangleFruit><1622.947><281.7849><28~52~2~3, DangleFruit><1720.947><253.7866><77.17181~11.72012~2~3, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><724.6499><516.3824><0.5><1, OMNI><am_env-natwind.ogg><724.4485><444.2746><0.5><1, OMNI><am_ind-midsex03.ogg><724.7708><582.8011><0.5><1.254348, OMNI><msc-structurestrain.ogg><726.4458><374.4591><0.5><1, OMNI><msc-lowgroans.ogg><725.573><301.0931><0.5><1, 
+FadePalette: 331, 0.6086956, 0.6086956, 0.6086956

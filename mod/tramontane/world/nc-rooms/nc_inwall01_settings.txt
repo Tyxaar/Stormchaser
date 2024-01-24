@@ -1,0 +1,8 @@
+Template: NC_SettingsTemplate_wallinside
+Clouds: 0.8661237
+Grime: 0.1056044
+Palette: 565
+Effects: Fog-0.6056051-20-20, 
+PlacedObjects: LightFixture><562.1824><541.9873><RedLight~17.32051~-10~77, LightFixture><227.869><219.4147><RedLight~17.32051~-10~67, 
+AmbientSounds: OMNI><AM_IND-SuperStructure.ogg><765.5435><487.8925><0.206137><1, OMNI><AM_ENV-WallHum.ogg><421.17><146.987><0.3762678><1, 
+FadePalette: 566, 0.5026607

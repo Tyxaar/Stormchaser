@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_pumps
+PlacedObjects: LightFixture><397.5295><66.12299><RedSubmersible~17.32051~-10~11, LightFixture><997.9066><337.1815><RedSubmersible~17.32051~-10~5, LightFixture><366.0693><553.4282><RedSubmersible~17.32051~-10~78, LightFixture><2147.589><318.4493><RedSubmersible~-176.9077~98.85315~32, LightBeam><1007.524><397.7322><965.449~188.6949~990.5085~152.4104~249.8801~-453.9105~179.9991~-216.2833~0.4154663~1~0~0~None~0~0, LightSource><1956.049><555.4191><0.6829383~White~-150.8292~-77.8645~-146.3625~-262.0121~0~0~None~0~0, LightFixture><1833.484><5.42178><RedSubmersible~17.32051~-10~37, 
+AmbientSounds: OMNI><AM_SUB-BlankState.ogg><739.2073><262.3079><0.3066691><1, 
+FadePalette: 566, 0.8893232, 0.8840014

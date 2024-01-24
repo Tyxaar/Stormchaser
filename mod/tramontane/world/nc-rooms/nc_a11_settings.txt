@@ -1,0 +1,6 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Flood
+Grime: 0.05434782
+Effects: Contrast-0.06521739-18-81, 
+PlacedObjects: LightSource><713.0869><574.8657><0.25~Environment~-83~-185~118~-132.3975~1~0~None~0~0, LightSource><467.3473><522.3253><0.07608695~Environment~-611~-564~-453~-193.3975~0~0~None~0~0, BubbleGrass><536.3002><443.0095><35~66~3~6, BubbleGrass><512.8804><439.1517><-163~135~3~6, LightSource><460.8768><537.3424><0.1086956~EffectColor1~-680~-243~275~-214.3975~0~0~None~0~0, CGDrySpot><420.5685><132.666><100~50~100^100~True~None, CustomDecal><412.6144><217.647><-14~146~130~182~145~-15~-354~-234~0.1521739~1~0.3586957~pointofnoreturn~0.5~0.3043478~0.5~0.3043478~0.5~0.3043478~0.5~0.3043478, 
+FadePalette: 566, 0.5543478

@@ -1,0 +1,10 @@
+﻿{
+	"id": "tramontane",
+	"name": "Tramontane",
+	"version": "0.1.0",
+	"authors": "Vela, Tyxaar, Pootis Bird, WillowWisp, Roasted, Mayhemmm",
+	"description": "For a better experience, turn on screen shaking effects in the remix menu !",
+	"requirements": [ "slime-cubed.slugbase", "crs", "regionkit" ],
+	"requirements_names": [ "SlugBase", "Custom Regions Support", "RegionKit" ],
+	"tags": [ "Custom Slugcat", "Regions" ]
+}

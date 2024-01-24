@@ -1,0 +1,3 @@
+Template: UW_SettingsTemplate_indoorsthunder
+AmbientSounds: OMNI><am_rain-rollingthunder.ogg><736.0681><262.8331><1><1, 
+FadePalette: 8, 0.2826087

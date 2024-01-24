@@ -1,0 +1,11 @@
+NC_landscape - 6 : 5 : Normal
+NC_landscape - 5 : 2 : Normal
+NC_landscape - 4 : 1.5 : Normal
+NC_landscape - 3 : 1.3 : Normal
+NC_landscape - 2 : 1 : Normal
+NC_landscape - 1 : 0.5 : Normal
+
+blurMin : 0
+blurMax : 0.2
+idleDepths : 1
+idleDepths : 2

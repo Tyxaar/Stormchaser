@@ -1,0 +1,13 @@
+Template: NC_SettingsTemplate_pumps
+DangerType: Flood
+WaveSpeed: 0.5
+WaveLength: 0.75
+WaveAmplitude: 0.04179223
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Grime: 0.1365376
+Palette: 8
+Effects: Fog-0.5050727-20-20, 
+PlacedObjects: LightFixture><522.2909><560.5739><RedSubmersible~-213.9035~-130.2365~21, LightFixture><1081.874><559.2829><RedSubmersible~17.32051~-10~22, LightFixture><1641.425><559.6774><RedSubmersible~17.32051~-10~47, LightFixture><1356.086><278.1057><RedSubmersible~-71.61176~113.7938~39, LightFixture><2005.173><339.6129><RedSubmersible~17.32051~-10~11, LightFixture><226.5597><247.0985><RedSubmersible~-85.12949~-126.6792~31, 
+AmbientSounds: OMNI><Mech Basic.wav><39.25951><493.5008><0.1597369><1, SPOT><SO_IND-Generator.ogg><751.0983><460.9005><0.3530685><1><1355.729><277.2807><-35.35534><-35.35534><0><0.1773323, SPOT><SO_IND-HVAC.ogg><454.3588><306.6217><0.5><1><520.6463><557.7029><-48.87305><-55.27625><0><0.3087981, 
+FadePalette: 34, 0.1546649, 0.1082653

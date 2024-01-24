@@ -1,0 +1,11 @@
+Template: SI_SettingsTemplate_thunder
+Clouds: 0.3152174
+Grime: 0.3043478
+BkgDroneVolume: 0.2608696
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: Flies-0-20-20, SkyDandelions-0-30-30, 
+PlacedObjects: DevToken><119.3032><218.4644><67~-72~0~0~0~~~0~0~0~1~0~0~0~1~0~0~0~1~0~0~0~1, 
+AmbientSounds: OMNI><AM_ENV-LightWind.ogg><751.0504><521.5117><0.3913043><0.7652174, 
+FadePalette: 331, 0.5, 0.4565217, 0.4021739

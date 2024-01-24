@@ -1,0 +1,4 @@
+Clouds: 0.2189847
+Grime: 0.1086956
+Effects: ElectricDeath-0.8586956-279-22, 
+PlacedObjects: LightSource><112.3158><386.8279><0.2065217~EffectColor1~0~100~50~86.60254~0~1~Flash~0.6521739~0, LightSource><111.625><386.9062><0.6521739~EffectColor1~17~30~311~82.60254~0~1~Flash~0.6521739~0, LightSource><1793.163><569.6158><0.6086956~EffectColor1~-24~-21~99~-28.39746~0~1~Flash~0.6521739~0, LightSource><1793.832><571.8585><0.2065217~EffectColor1~-98~15~-608~-184.3975~0~1~Flash~0.6521739~0, 

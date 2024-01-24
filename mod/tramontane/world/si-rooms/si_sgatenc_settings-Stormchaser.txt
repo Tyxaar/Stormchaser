@@ -1,0 +1,7 @@
+Template: SI_SettingsTemplate_indoorsthunder
+Clouds: 1
+EffectColorA: 5
+EffectColorB: 5
+PlacedObjects: LightSource><309.3021><408.7213><0.3043478~EffectColor1~0~100~50~86.60254~0~1~None~0~0, LightSource><652.1628><261.32><0.3043478~EffectColor1~0~100~50~86.60254~0~1~None~0~0, LightSource><654.8672><182.3995><0.3043478~EffectColor1~0~100~50~86.60254~0~1~None~0~0, 
+FadePalette: 331, 0.6086956
+WetTerrain: OFF

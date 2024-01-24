@@ -1,0 +1,10 @@
+Template: NONE
+Clouds: 1
+Grime: 0.25
+Palette: 331
+EffectColorA: 8
+EffectColorB: 21
+Effects: Darkness-0.25-20-20, 
+PlacedObjects: LightSource><1768.597><362.675><0.2065217~EffectColor1~-64~-33~50~86.60254~0~1~None~0~0, LightSource><1612.688><346.9321><0.1086956~EffectColor1~2~30~-138~132.6025~0~1~None~0~0, LightSource><1289.051><387.5185><0.1086956~EffectColor1~-1~28~-221~134.6025~0~1~None~0~0, LightSource><1492.117><345.8508><0.1086956~EffectColor1~-5~25~-196~126.6025~0~1~None~0~0, LightSource><560.0553><370.2956><0.2065217~EffectColor1~1~85~50~86.60254~0~0~None~0~0, LightSource><337.4489><365.7708><0.1086956~EffectColor1~0~59~50~86.60254~0~1~None~0~0, LightSource><697.054><363.7899><0.1086956~EffectColor1~-79~2~104~-23.39746~0~1~None~0~0, LightSource><267.9063><388.1248><0.1086954~EffectColor1~-1~23~-110~133.6025~0~1~None~0~0, LightSource><225.661><349.8209><0.1086956~EffectColor1~-4~23~-208~128.6025~0~1~None~0~0, LightSource><260.4164><249.611><0.1086956~EffectColor1~0~100~-264~-208.3975~0~0~None~0~0, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><722.7255><472.1985><0.5><1, OMNI><am_env-natwind.ogg><722.8159><400.3112><0.5><1, OMNI><am_ind-midsex03.ogg><721.3066><546.9418><0.5><1.254348, OMNI><msc-unrelentingbreakage.ogg><718.9793><327.0511><0.5><1, OMNI><msc-lowgroans.ogg><722.9635><258.5533><0.5><1, OMNI><msc-structurestrain.ogg><722.3138><187.573><0.25><1, OMNI><AM_RAIN-RollingThunder.ogg><547.3972><547.8646><0.5><1, 
+FadePalette: 10, 0.8586956, 0.8043478

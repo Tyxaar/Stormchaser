@@ -1,0 +1,7 @@
+Template: NONE
+CeilingDrips: 0.6984034
+Grime: 0.1566689
+Palette: 34
+PlacedObjects: LightFixture><135.5224><399.5578><RedLight~12.34027~93.87292~6, LightFixture><854.7834><183.8041><RedLight~17.32051~-10~75, NoSpearStickZone><485.7328><251.6992><204~169, 
+AmbientSounds: OMNI><Mech Basic.wav><76.40546><505.2655><0.1056039><1, SPOT><SO_IND-HVAC.ogg><520.2505><613.4858><0.5><1><133.4058><400.1108><-46.02722><-53.85324><0><0.2778659, OMNI><SO_WAT-LilDrips.ogg><738.4216><518.2532><0.2061356><1, OMNI><SO_WAT-MoreDrips.ogg><738.6019><436.9602><0.159737><1, 
+FadePalette: 8, 0.8042573

@@ -1,0 +1,7 @@
+Template: UW_SettingsTemplate_indoorsthunder
+Clouds: 1
+Palette: 331
+EffectColorA: 5
+EffectColorB: 5
+PlacedObjects: SuperStructureFuses><469.3578><78.63783><185~67, 
+FadePalette: 17, 0.4565217

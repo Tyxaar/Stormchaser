@@ -1,0 +1,6 @@
+Template: NC_SettingsTemplate_pumps
+Grime: 0.154133
+Palette: 34
+PlacedObjects: LightFixture><205.9786><257.464><RedSubmersible~15.89758~36.24478~45, LightFixture><725.1111><350.832><RedSubmersible~17.32051~-10~52, 
+AmbientSounds: SPOT><AM_IND-DeepHum.ogg><715.8952><310.7696><0.3530691><1><728.4672><349.1248><-35.35534><-35.35534><0><0.2005323, 
+FadePalette: 566, 0.8042569

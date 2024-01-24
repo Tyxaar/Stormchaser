@@ -1,0 +1,8 @@
+Template: NC_SettingsTemplate_indoorsthunder
+Clouds: 1
+Palette: 331
+EffectColorA: 8
+EffectColorB: 21
+Effects: BkgOnlyLightning-0.5-20-20, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><732.3708><435.1594><0.5><1, OMNI><am_env-natwind.ogg><732.6502><367.0767><0.5><1, OMNI><AM_RAIN-RollingThunder.ogg><561.071><504.6607><1><1, 
+FadePalette: 10, 0.8043478

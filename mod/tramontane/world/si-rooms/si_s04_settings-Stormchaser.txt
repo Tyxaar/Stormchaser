@@ -1,0 +1,6 @@
+Template: SI_SettingsTemplate_indoorsthunder
+Palette: 332
+Effects: ElectricDeath-0-40-40, 
+PlacedObjects: BrokenShelterWaterLevel><568.3526><472.6149><, 
+AmbientSounds: SPOT><AM_IND-Utility02.ogg><692.8223><459.0635><0.423913><1><573.8223><377.0635><-64.35535><-58.35535><0><0.1760871, 
+FadePalette: 331, 0.3043478

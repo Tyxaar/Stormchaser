@@ -1,0 +1,21 @@
+DangerType: Flood
+CeilingDrips: 0.5
+RainIntensity: 1
+RumbleIntensity: 1
+WaveSpeed: 0.75
+WaveLength: 0.5
+WaveAmplitude: 0
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Clouds: 1
+Grime: 0.2173913
+BkgDroneVolume: 0
+BkgDroneNoThreatVolume: 1
+RandomItemDensity: 0.5
+RandomItemSpearChance: 0.2
+WaterReflectionAlpha: 1
+Palette: 332
+EffectColorA: 10
+EffectColorB: 10
+Effects: ElectricDeath-0-30-30, DarkenLights-0.6521739-29-85, BkgOnlyLightning-0.5-298-84, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><732.3708><435.1594><0.5><1, OMNI><am_env-natwind.ogg><732.6502><367.0767><0.5><1, OMNI><AM_RAIN-RollingThunder.ogg><561.071><504.6607><1><1, 

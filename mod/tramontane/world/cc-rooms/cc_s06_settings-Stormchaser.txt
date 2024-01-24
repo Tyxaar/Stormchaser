@@ -1,0 +1,4 @@
+Template: CC_SettingsTemplate_gutterstorm
+RainIntensity: 0
+RumbleIntensity: 0
+FadePalette: 21, 0.25

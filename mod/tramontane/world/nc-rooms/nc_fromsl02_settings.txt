@@ -1,0 +1,10 @@
+Template: NC_SettingsTemplate_pumps
+WaveSpeed: 0.7238242
+WaveLength: 0.98818
+WaveAmplitude: 0.03969707
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Grime: 0.1288047
+PlacedObjects: LightFixture><567.1743><627.458><RedSubmersible~17.32051~-10~23, LightFixture><218.5392><196.5583><RedSubmersible~17.32051~-10~15, LightFixture><821.1322><266.3462><RedSubmersible~17.32051~-10~39, 
+AmbientSounds: SPOT><SO_IND-Boiler.ogg><713.0262><550.042><0.314402><1><507.1804><171.4826><-46.73871><-58.83345><0><0.3010645, 
+FadePalette: 566, 0.9768003

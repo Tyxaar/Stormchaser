@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_wallinside
+EffectColorA: 18
+PlacedObjects: LightFixture><957.8715><221.7238><RedLight~17.32051~-10~29, LightFixture><219.3717><267.9211><RedLight~-122.8369~-208.4969~46, LightFixture><611.7098><470.6816><RedLight~17.32051~-10~25, LightFixture><1696.72><500.7397><RedLight~17.32051~-10~80, 
+AmbientSounds: OMNI><Deep Weird Wind.wav><723.5525><543.8451><0.1056041><1, OMNI><Mech Active.wav><733.3199><449.3508><0.1056048><1, 
+FadePalette: 566, 0.7037249, 0.6573257

@@ -1,0 +1,4 @@
+Template: SI_SettingsTemplate_indoorsthunder
+Palette: 332
+Effects: ElectricDeath-0-30-30, 
+FadePalette: 331, 0.6086956

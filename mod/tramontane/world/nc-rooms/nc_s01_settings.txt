@@ -1,0 +1,3 @@
+Effects: ElectricDeath-0-284-16, LightRain-0-275-126, AboveCloudsView-0-278-71, 
+BackgroundOffset: 0,-100
+BackgroundType: atc_canyon

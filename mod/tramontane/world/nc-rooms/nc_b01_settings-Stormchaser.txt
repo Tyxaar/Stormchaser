@@ -1,0 +1,10 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Rain
+Grime: 0.25
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: Darkness-0.7065217-20-20, 
+PlacedObjects: LightSource><425.1727><408.6008><0.3043478~EffectColor2~150~-205~50~86.60254~1~0~None~0~0, LightSource><1455.947><416.3071><0.3043478~EffectColor2~110~-317~50~86.60254~1~0~None~0~0, 
+AmbientSounds: OMNI><am_env-natwind.ogg><721.2051><445.9449><0.5><1, OMNI><am_env-lightwind.ogg><722.5012><518.55><0.5><1, OMNI><am_ind-midsex03.ogg><721.6185><589.5889><0.5><1.254348, OMNI><msc-structurestrain.ogg><723.1981><369.2227><0.6086956><1, OMNI><msc-lowgroans.ogg><722.0939><296.625><0.5><1, 
+FadePalette: 331, 0.6086956, 0.6086956

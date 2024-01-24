@@ -1,0 +1,10 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Rain
+Grime: 0.25
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: TinyDragonFly-0.2065217-20-20, Darkness-0.25-275-17, 
+PlacedObjects: LightBeam><430.0826><78.14059><-228~400~32~409~297~-28~-357~-59~0.4543477~0~0.9450471~1~None~0~0, 
+AmbientSounds: OMNI><AM_ENV-NatWind.ogg><727.8751><492.4062><0.1521739><1, OMNI><am_env-lightwind.ogg><727.4583><419.1956><0.5><1, OMNI><am_ind-midsex03.ogg><726.5613><569.0665><0.5><1.254348, OMNI><msc-lowgroans.ogg><725.9451><346.5577><0.5><1, 
+FadePalette: 331, 0.6086956

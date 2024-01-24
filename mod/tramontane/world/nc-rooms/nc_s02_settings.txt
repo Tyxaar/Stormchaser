@@ -1,0 +1,6 @@
+Template: NONE
+DangerType: None
+Grime: 0.1597376
+Palette: 8
+PlacedObjects: LightFixture><331.4952><503.5766><RedLight~17.32051~-10~79, LightFixture><623.4641><358.1546><RedLight~17.32051~-10~13, 
+AmbientSounds: OMNI><Mech Basic.wav><241.8541><61.33219><0.206137><1, SPOT><SO_IND-Generator.ogg><714.0059><458.499><0.2061376><1><471.8759><422.1511><-58.8335><-53.85324><0><0.5098618, 

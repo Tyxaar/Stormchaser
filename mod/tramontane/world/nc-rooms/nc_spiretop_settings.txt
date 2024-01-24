@@ -1,0 +1,5 @@
+DangerType: None
+Effects: ElectricDeath-1-276-19, AboveCloudsView-0-276-75, LightRain-0.05434782-268-128, 
+PlacedObjects: LightSource><612.8081><547.3065><1~EffectColor1~-416~-279~-348~-189.3975~0~0~None~0.6521739~0, LightningMachine><713.1499><549.3824><110~-156~0~0~-101~0.6025391~-100~-4.371139E-06~0.4586951~0~0~0.6043476~0.6586954~0.3~1~0.3043478~2~0.3586957~0~1~0, BlueToken><512.5817><277.5674><57~-65~-332~205~1~Centiwing~~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0, DeadTokenStalk><521.0823><211.141><47~-20, DeadTokenStalk><732.5702><386.6624><-9~-38, 
+BackgroundOffset: 0,-100
+BackgroundType: atc_canyon

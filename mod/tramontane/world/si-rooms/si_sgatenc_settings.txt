@@ -1,0 +1,4 @@
+Template: SI_SettingsTemplate_Inside
+Clouds: 0.4565217
+PlacedObjects: LightSource><309.3021><408.7213><1~EffectColor1~0~100~50~86.60254~0~0~None~0~0, LightSource><652.1628><261.32><1~EffectColor1~0~100~50~86.60254~0~0~None~0~0, LightSource><654.8672><182.3995><1~EffectColor1~0~100~50~86.60254~0~0~None~0~0, 
+WetTerrain: OFF

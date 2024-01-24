@@ -1,0 +1,10 @@
+Template: SI_SettingsTemplate_indoorsthunder
+DangerType: Rain
+Clouds: 1
+Grime: 0.2282609
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: SkyAndLightBloom-0-20-20, 
+PlacedObjects: DataPearl><679.5629><1359.747><0~0~0~0~Misc~0, UniqueDataPearl><576.9341><337.172><0~0~0~0~SI_chat5~0, 
+FadePalette: 331, 0.3043478, 0.3043478

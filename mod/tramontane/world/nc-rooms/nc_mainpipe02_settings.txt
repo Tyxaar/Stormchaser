@@ -1,0 +1,11 @@
+Template: NC_SettingsTemplate_pumps
+DangerType: FloodAndRain
+RainIntensity: 0.7061366
+WaveSpeed: 0.4981064
+WaveLength: 0.9990532
+WaveAmplitude: 0.04923012
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+PlacedObjects: LightFixture><363.8342><303.1649><RedSubmersible~17.32051~-10~25, LightFixture><1031.032><304.3259><RedSubmersible~17.32051~-10~5, LightFixture><1714.072><93.85513><RedSubmersible~17.32051~-10~7, LightFixture><2882.855><359.7905><RedSubmersible~17.32051~-10~26, LightFixture><3961.77><165.8549><RedSubmersible~17.32051~-10~11, 
+AmbientSounds: OMNI><AM_SUB-BlankState.ogg><736.6922><267.7415><0.206137><1, SPOT><Mech Active.wav><692.9266><471.6461><0.1288047><1><3490.081><327.868><-766.7344><-225.3148><0><0.3087974, SPOT><AM_IND-Factory01.ogg><741.1387><132.1021><0.206137><1><3496.317><291.4053><-681.3595><3.063416><0><0.3010639, 
+FadePalette: 566, 0.9047893, 0.9047894, 0.9047894, 0.9047894

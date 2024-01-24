@@ -1,0 +1,11 @@
+Template: SI_SettingsTemplate_indoorsthunder
+DangerType: Flood
+Grime: 0.2173913
+BkgDroneVolume: 0
+Palette: 332
+EffectColorA: 5
+EffectColorB: 5
+Effects: ElectricDeath-0-30-30, 
+PlacedObjects: BrokenShelterWaterLevel><495.0516><448.475><, 
+AmbientSounds: SPOT><AM_IND-Utility02.ogg><200.8324><347.1092><0.4130435><1><563.8324><465.1091><-149.3553><-11.35535><0><0.3065219, 
+FadePalette: 331, 0.2065217

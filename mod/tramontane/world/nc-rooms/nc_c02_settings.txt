@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_pumps
+Palette: 565
+PlacedObjects: PlayerPushback><2949.819><252.3359><-2366~0, LightSource><122.4638><427.5533><0.1086956~Environment~584~-101~50~86.60254~1~0~None~0~0, 
+AmbientSounds: SPOT><am_env-wallhum.ogg><700.3878><508.6656><0.25><1><103.3878><428.6656><175.6447><-1.355347><0><0.1, 
+FadePalette: 566, 0.6521739, 0.8586956, 1

@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_pumps
+WaterReflectionAlpha: 1
+PlacedObjects: LightFixture><261.4105><105.089><RedSubmersible~17.32051~-10~96, LightFixture><611.2786><448.8434><RedSubmersible~17.32051~-10~40, LightFixture><349.2474><811.4841><RedLight~17.32051~-10~30, LightFixture><610.0385><1370.661><RedLight~17.32051~-10~100, 
+AmbientSounds: SPOT><SO_WAT-OpenFlow.ogg><741.4824><491.1819><0.4072013><1><483.7001><1412.778><-47.45013><-45.31573><0><0.4557289, SPOT><SO_WAT-RunningWater.ogg><812.4557><209.7414><0.5><1><476.4131><339.958><-35.35534><-35.35534><0><0.6026611, OMNI><AM_IND-12thFloor.ogg><468.1006><360.7014><0.3840013><1, OMNI><SO_WAT-OpenFlow.ogg><519.5063><518.0436><0.3994671><0.5545653, OMNI><Mech Active.wav><598.3901><263.7366><0.1597376><1, 
+FadePalette: 566, 0.8351902, 0.83519

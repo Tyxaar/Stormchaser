@@ -1,0 +1,10 @@
+Template: NONE
+Clouds: 1
+Palette: 331
+EffectColorA: 8
+EffectColorB: 21
+Effects: BkgOnlyLightning-0.5-20-20, 
+PlacedObjects: LightSource><311.3546><177.3627><0.3586957~EffectColor1~32~179~-357~23.60254~0~0~None~0~0, LightSource><207.8546><345.8627><0.1086956~EffectColor1~7~36~50~86.60254~0~1~None~0~0, LightSource><594.3903><366.8925><0.2065217~EffectColor1~-64~-29~50~86.60254~1~1~None~0~0, LightSource><692.4071><350.3738><0.1086956~EffectColor1~-2~30~83~-10.39746~0~1~None~0~0, 
+AmbientSounds: OMNI><am_ind-midsex03.ogg><734.5627><503.5702><0.5><1.254348, OMNI><am_env-lightwind.ogg><732.3708><435.1594><0.5><1, OMNI><am_env-natwind.ogg><732.6502><367.0767><0.5><1, OMNI><msc-unrelentingbreakage.ogg><735.9461><297.0393><0.3043478><1, OMNI><AM_RAIN-RollingThunder.ogg><561.071><504.6607><1><1, 
+Triggers: Spot<tA>event<tB>MusicEvent<eA>songName<eB>halcyon_rails<eA>vol<eB>1<eA>prio<eB>0.5<eA>mxThrt<eB>1<eA>loop<eB>0<eA>droneTol<eB>0<eA>rooms<eB>-1<eA>rest<eB>0<eA>fadeIn<eB>0<eA>oneSongPerCycle<eB>0<eA>stopAtDeath<eB>0<eA>stopAtGate<eB>0<tA>multiUse<tB>0<tA>toCycle<tB>-1<tA>fromCycle<tB>0<tA>delay<tB>0<tA>panPos<tB>120.6589<tB>419.428<tA>fireChance<tB>1<tA>entrance<tB>-1<tA>karma<tB>0<tA>slugcats<tB><tA>pos<tB>158.6589<tB>227.428<tA>handlePos<tB>-65.35535<tB>-71.35535, 
+FadePalette: 10, 0.8043478

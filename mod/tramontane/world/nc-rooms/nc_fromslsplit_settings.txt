@@ -1,0 +1,6 @@
+Template: NC_SettingsTemplate_pumps
+Grime: 0.1597373
+Effects: WaterLights-1-154-84, 
+PlacedObjects: LightFixture><308.4601><473.3267><RedSubmersible~-224.5754~96.00723~35, LightFixture><225.9887><204.1202><RedSubmersible~17.32051~-10~96, LightFixture><1459.492><379.124><RedSubmersible~17.32051~-10~41, LightFixture><1662.784><723.4567><RedSubmersible~38.66425~-64.78235~59, LightFixture><1632.753><15.47521><RedSubmersible~17.32051~-10~91, LightFixture><1984.471><378.6725><RedSubmersible~17.32051~-10~85, LightFixture><664.9046><52.1368><RedSubmersible~17.32051~-10~65, LightFixture><1155.14><55.72757><RedSubmersible~17.32051~-10~38, LightBeam><1130.417><-31.73289><-570.5895~661.8146~-536.9925~717.3082~614.1468~541.4197~-574.8583~320.1563~0.4232005~1~0~0~None~0~0, LightSource><591.4062><642.9844><0.6829367~White~-12.09491~-134.0697~54.98022~-131.8152~0~0~None~0~0, 
+AmbientSounds: OMNI><AM_SUB-BlankState.ogg><808.5702><622.631><0.3066691><1, SPOT><SO_IND-HVAC.ogg><723.1998><417.6058><0.3530678><1><1457.003><380.6256><-35.35534><-35.35534><0><0.2005323, SPOT><AM_IND-DeepHum.ogg><718.9301><310.3232><0.3530678><1><225.4498><202.1971><-35.35534><-35.35534><0><0.2546645, 
+FadePalette: 566, 0.8893232, 0.8840019
