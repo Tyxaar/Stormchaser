@@ -11,6 +11,8 @@ using IL;
 using On;
 using Random = UnityEngine.Random;
 using DevInterface;
+using System.Security.Cryptography.X509Certificates;
+using Mono.Cecil;
 
 namespace Stormcat
 {
@@ -38,6 +40,9 @@ namespace Stormcat
 			On.Player.MovementUpdate += Player_MovementUpdate;
 			On.Player.Jump += Player_Jump;
 			//Graphics hooks
+			On.PlayerGraphics.AddToContainer += PlayerGraphics_AddToContainer;
+			On.PlayerGraphics.InitiateSprites += PlayerGraphics_InitiateSprites;
+			On.PlayerGraphics.DrawSprites += PlayerGraphics_DrawSprites;
 			On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
 			On.PlayerGraphics.Update += PlayerGraphics_Update;
 			//Misc hooks
@@ -77,7 +82,6 @@ namespace Stormcat
 			}
 		}
 
-
 		private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
 		{
 			if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
@@ -91,6 +95,90 @@ namespace Stormcat
 				minutes = Random.value < 0.5f ? Mathf.Lerp(min1, max1, Random.value) : Mathf.Lerp(min2, max2, Random.value);
 			}
 			orig(self, world, minutes);
+		}
+
+		private void PlayerGraphics_AddToContainer(On.PlayerGraphics.orig_AddToContainer orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, FContainer newContatiner)
+		{
+			orig(self, sLeaser, rCam, newContatiner);
+			
+			var data = Data(self.player);
+			
+			if (self.player.slugcatStats.name != Stormchaser)
+				return;
+
+			//var fg = rCam.ReturnFContainer("Foreground");
+			var mg = rCam.ReturnFContainer("Midground");
+			
+			for (int i = 0; i < 2; i++)
+			{
+				//fg.RemoveChild(sLeaser.sprites[data.armFlapMeshIndices[i]]);
+				sLeaser.sprites[data.armFlapMeshIndices[i]].RemoveFromContainer();
+				mg.AddChild(sLeaser.sprites[data.armFlapMeshIndices[i]]);
+			}
+		}
+
+		private void PlayerGraphics_InitiateSprites(On.PlayerGraphics.orig_InitiateSprites orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam)
+		{
+			var data = Data(self.player);
+			
+			data.armFlapMeshIndices = new int[2];
+			
+			orig(self, sLeaser, rCam);
+
+			if (self.player.slugcatStats.name != Stormchaser)
+				return;
+
+			int oldSLeaserLength = sLeaser.sprites.Length;
+			
+			Array.Resize(ref sLeaser.sprites, oldSLeaserLength + 2);
+			sLeaser.sprites[oldSLeaserLength] = TriangleMesh.MakeLongMesh(2, false, false);
+			sLeaser.sprites[oldSLeaserLength + 1] = TriangleMesh.MakeLongMesh(2, false, false);
+			
+			data.armFlapMeshIndices[0] = oldSLeaserLength;
+			data.armFlapMeshIndices[1] = oldSLeaserLength + 1;
+
+			self.AddToContainer(sLeaser, rCam, null);
+		}
+
+		private void PlayerGraphics_DrawSprites(On.PlayerGraphics.orig_DrawSprites orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, float timeStacker, Vector2 camPos)
+		{
+			orig(self, sLeaser, rCam, timeStacker, camPos);
+
+			if (self.player.slugcatStats.name != Stormchaser)
+				return;
+			
+			var data = Data(self.player);
+
+			TriangleMesh[] flapMeshes = { (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[0]], (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[1]] };
+			
+			Vector2 upperFlapAnchorPos = sLeaser.sprites[0].GetPosition();
+
+			for (int i = 0; i < 2; i++)
+			{
+				Vector2 handFlapAnchorPos = sLeaser.sprites[5 + i].GetPosition();
+				
+				Vector2 lowerFlapAnchorPos = Vector2.Lerp(sLeaser.sprites[4].GetPosition(), sLeaser.sprites[1].GetPosition(), 0.2f);
+				lowerFlapAnchorPos += Custom.DirVec(lowerFlapAnchorPos, handFlapAnchorPos) * 6f;
+
+				float armStraightness = (float.Parse(sLeaser.sprites[5 + i].element.name.Substring(9)) - 1) / 12; // this is so funny
+
+				Vector2 innerElbowFlapAnchorPos = Vector2.Lerp(upperFlapAnchorPos, handFlapAnchorPos, 0.75f) + Custom.RotateAroundOrigo(Custom.DirVec(upperFlapAnchorPos, handFlapAnchorPos), -90 * (i == 0 ? 1 : -1)) * 5f * (1 - armStraightness);
+
+				Vector2 flapFloppyBezierControl = innerElbowFlapAnchorPos - new Vector2(0, 12) * (0.9f + 0.3f * armStraightness);
+				
+				flapMeshes[i].vertices[0] = upperFlapAnchorPos;
+				flapMeshes[i].vertices[1] = lowerFlapAnchorPos;
+				flapMeshes[i].vertices[2] = Vector2.Lerp(upperFlapAnchorPos, innerElbowFlapAnchorPos, 0.5f);
+				flapMeshes[i].vertices[3] = Custom.Bezier(lowerFlapAnchorPos, flapFloppyBezierControl, handFlapAnchorPos, flapFloppyBezierControl, 0.33f);
+				flapMeshes[i].vertices[4] = innerElbowFlapAnchorPos;
+				flapMeshes[i].vertices[5] = Custom.Bezier(lowerFlapAnchorPos, flapFloppyBezierControl, handFlapAnchorPos, flapFloppyBezierControl, 0.66f);
+				flapMeshes[i].vertices[6] = handFlapAnchorPos;
+				flapMeshes[i].vertices[7] = handFlapAnchorPos;
+
+				Debug.Log(armStraightness);
+				
+				flapMeshes[i].isVisible = sLeaser.sprites[5 + i].isVisible;
+			}
 		}
 
 		private void PlayerGraphics_Update(On.PlayerGraphics.orig_Update orig, PlayerGraphics self)
