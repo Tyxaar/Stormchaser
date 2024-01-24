@@ -73,7 +73,7 @@ namespace Stormcat
 				{
 					self.cameras[0].screenShake += 0.1f;
 				}
-				self.cameras[0].screenShake += 0.2f;
+				//self.cameras[0].screenShake += 0.2f;
 			}
 		}
 
