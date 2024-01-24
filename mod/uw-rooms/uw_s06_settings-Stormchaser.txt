@@ -1,8 +1,0 @@
-Template: UW_SettingsTemplate_indoorsthunder
-Clouds: 1
-Grime: 0.1521739
-Palette: 331
-EffectColorA: 5
-EffectColorB: 5
-Effects: ElectricDeath-0.09782609-46-85, 
-FadePalette: 17, 0.3804348

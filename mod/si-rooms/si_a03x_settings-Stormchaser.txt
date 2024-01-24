@@ -1,7 +1,0 @@
-Template: SI_SettingsTemplate_thunder
-Palette: 332
-EffectColorA: 5
-EffectColorB: 5
-Effects: Flies-0-20-20, SkyDandelions-0-30-30, 
-PlacedObjects: DeadSeedCob><711.8893><404.4166><, DeadSeedCob><745.9536><346.0555><, DeadSeedCob><828.1703><355.3549><, DandelionPatch><282.8437><598.7677><17~119, DandelionPatch><733.563><254.4919><0~100, 
-FadePalette: 331, 0.3586957

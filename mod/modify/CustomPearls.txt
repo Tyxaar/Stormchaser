@@ -1,5 +1,0 @@
-[ADD]Stormchaser_Message : 00FF00 : 00FF00 : Bottle_To_The_Sea
-[ADD]Stormchaser_UW : FFC328 : FFFF00 : Molniya
-[ADD]Stormchaser_SL : 32FFFF : FFFFFF : Graveyard
-[ADD]Stormchaser_HI : AB00FF : FF00FF : Polar
-[ADD]Stormchaser_SI : 0000FF : 008CFF : Tundra

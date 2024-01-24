@@ -1,7 +1,0 @@
-Template: CC_SettingsTemplate_gutterstorm
-DangerType: None
-Clouds: 1
-Grime: 0.3586957
-Palette: 332
-PlacedObjects: BrokenShelterWaterLevel><477.8003><204.261><, 
-FadePalette: 21, 0.5

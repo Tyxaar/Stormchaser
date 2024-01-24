@@ -1,2 +1,0 @@
-Template: UW_SettingsTemplate_indoorsthunder
-FadePalette: 17, 0.4456522

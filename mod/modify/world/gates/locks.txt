@@ -1,2 +1,0 @@
-[ADD]GATE_SI_NC : 3 : 3
-[ADD]GATE_SL_NC : 3 : 1

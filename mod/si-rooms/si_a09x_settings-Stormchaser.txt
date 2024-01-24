@@ -1,3 +1,0 @@
-Template: SI_SettingsTemplate_indoorsthunder
-Clouds: 1
-FadePalette: 331, 0.4021739

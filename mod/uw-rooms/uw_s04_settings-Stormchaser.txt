@@ -1,9 +1,0 @@
-Template: UW_SettingsTemplate_indoorsthunder
-Clouds: 1
-Grime: 0.1521739
-Palette: 332
-EffectColorA: 5
-EffectColorB: 5
-Effects: BkgOnlyLightning-1-42-116, 
-AmbientSounds: OMNI><am_env-natwind.ogg><338.3207><232.6614><0.5><1, OMNI><am_rain-quietthunder.ogg><366.6046><152.8873><1><1, OMNI><am_rain-rollingthunder.ogg><184.8842><151.4131><0.5><1, OMNI><am_win-howlingwnd.ogg><152.0532><231.4648><0.25><1, OMNI><am_win-strongwnd2.ogg><254.5736><314.8443><0.5><1, 
-FadePalette: 42, 0

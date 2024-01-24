@@ -1,2 +1,0 @@
-[FINDLINESTART]Room Setting Templates:
-[REPLACE_1]Room Setting Templates: Outside, Inside, thunder, indoorsthunder, gutterstorm

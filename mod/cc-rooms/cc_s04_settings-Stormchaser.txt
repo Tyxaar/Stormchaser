@@ -1,4 +1,0 @@
-Template: CC_SettingsTemplate_indoorsthunder
-Palette: 332
-PlacedObjects: BrokenShelterWaterLevel><525.55><465.7491><, 
-FadePalette: 15, 0

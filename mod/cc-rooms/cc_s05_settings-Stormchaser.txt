@@ -1,2 +1,0 @@
-Template: CC_SettingsTemplate_indoorsthunder
-FadePalette: 8, 0
