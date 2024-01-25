@@ -156,15 +156,18 @@ namespace Stormcat
 			for (int i = 0; i < 2; i++)
 			{
 				Vector2 handFlapAnchorPos = sLeaser.sprites[5 + i].GetPosition();
+
+				Vector2 bodyOrientation = Custom.DirVec(self.player.bodyChunks[1].pos, self.player.bodyChunks[0].pos);
+				float upness = Math.Max(Vector2.Dot(bodyOrientation, new Vector2(0, 1)), 0f);
 				
-				Vector2 lowerFlapAnchorPos = Vector2.Lerp(sLeaser.sprites[4].GetPosition(), sLeaser.sprites[1].GetPosition(), 0.2f);
-				lowerFlapAnchorPos += Custom.DirVec(lowerFlapAnchorPos, handFlapAnchorPos) * 6f;
+				Vector2 lowerFlapAnchorPos = Vector2.Lerp(sLeaser.sprites[4].GetPosition(), sLeaser.sprites[1].GetPosition(), Mathf.Lerp(0.1f, 0.4f, upness));
+				lowerFlapAnchorPos += Custom.PerpendicularVector(bodyOrientation) * Mathf.Lerp(0, 4, upness) * (i == 0 ? 1 : -1) - (bodyOrientation * Mathf.Lerp(10, 0, upness));
 
 				float armStraightness = (float.Parse(sLeaser.sprites[5 + i].element.name.Substring(9)) - 1) / 12; // this is so funny
 
-				Vector2 innerElbowFlapAnchorPos = Vector2.Lerp(upperFlapAnchorPos, handFlapAnchorPos, 0.75f) + Custom.RotateAroundOrigo(Custom.DirVec(upperFlapAnchorPos, handFlapAnchorPos), -90 * (i == 0 ? 1 : -1)) * 5f * (1 - armStraightness);
+				Vector2 innerElbowFlapAnchorPos = Vector2.Lerp(upperFlapAnchorPos, handFlapAnchorPos, 0.75f) + Custom.RotateAroundOrigo(Custom.DirVec(upperFlapAnchorPos, handFlapAnchorPos), -90 * (i == 0 ? 1 : -1)) * 5f * (1f - armStraightness);
 
-				Vector2 flapFloppyBezierControl = innerElbowFlapAnchorPos - new Vector2(0, 12) * (0.9f + 0.3f * armStraightness);
+				Vector2 flapFloppyBezierControl = innerElbowFlapAnchorPos - bodyOrientation * 12f * (0.9f + 0.3f * armStraightness);
 				
 				flapMeshes[i].vertices[0] = upperFlapAnchorPos;
 				flapMeshes[i].vertices[1] = lowerFlapAnchorPos;
