@@ -1,0 +1,1 @@
+PlacedObjects: LightSource><837.6024><1492.88><0.3042065~Environment~-636~-755~-259~-302.3975~1~1~None~0~0, InsectGroup><1516.076><434.3261><-297~-66~0~0~TinyDragonFly~0.2065217, 
