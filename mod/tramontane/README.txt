@@ -1,6 +1,7 @@
 HUGE thank you to:
-- Mayhemmm (mayhemmmwiththreems) for donating the rooms that became the "Facility Roots (Northern Intake)" subregion as well as Stormchaser's mesh 
+- Mayhemmm (mayhemmmwiththreems) for donating the rooms that became the "Facility Roots (Northern Intake)" subregion 
 - Tyxaar for coding Stormchaser's movements and custom dialog
-- WillowWisp for coding some rooms to shake and the custom passage
-- Pootis Bird (Pooteas Bird) for making the threat themes and "thingamodobinations"/"Glide"
-- Roasted for making "Forlorn Structure", "Fallen Star" and "Beyond the Veil"
+- WillowWisp for coding some rooms to shake
+- Pootis Bird (Pooteas Bird) for making the threat themes and "thingamodobinations"
+- Vigaro for providing code for the two types of cycle lenghts
+- Roasted for making "Forlorn Structure"

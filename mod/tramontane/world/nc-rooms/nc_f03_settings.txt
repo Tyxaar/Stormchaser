@@ -1,1 +1,1 @@
-PlacedObjects: PlayerPushback><2051.742><1857.145><-110~0, NoSpearStickZone><125.3205><2297.424><201~-245, LightSource><-126.6115><3073.944><0.2072243~Environment~-1026~-644~580.9985~-290.3948~0~1~None~0~0, 
+PlacedObjects: PlayerPushback><2051.742><1857.145><-110~0, NoSpearStickZone><125.3205><2297.424><201~-245, LightSource><-126.6115><3073.944><0.2072243~Environment~-1026~-644~580.9985~-290.3948~0~1~None~0~0, ExitSymbolHidden><272.3822><762.3519><, 
