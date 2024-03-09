@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_indoorsthunder
+PlacedObjects: LightSource><311.9492><386.2324><0.4021739~EffectColor1~0~100~165~-5.39743~1~0~None~0~0, LightSource><434.8233><416.0639><0.2065217~EffectColor1~0~100~50~86.60254~1~0~None~0~0, 
+AmbientSounds: SPOT><am_ind-50hz.ogg><124.9608><319.6961><0.3043478><1><436.9608><417.6961><-24.35535><-22.35535><0><0.1, SPOT><am_ind-50hz.ogg><123.1707><441.3957><0.3043478><1><310.1707><387.3957><-26.35535><-25.35535><0><0.1, 
+FadePalette: 330, 0.1086956
+MorePalette0: 10, 0.2065217
