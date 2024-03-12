@@ -40,17 +40,25 @@ namespace Stormcat
 			//Graphics hooks
 			On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
 			On.PlayerGraphics.Update += PlayerGraphics_Update;
+            //On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
+
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
 			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
+            //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
+
 			//Quest hooks
 			On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
-			//echo hooks
-			On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
+            On.SLOracleBehaviorHasMark.MoonConversation.AddEvents += MoonConversation_AddEvents;
+
+            //echo hooks
+            On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
 			StormyPassageHooks.Apply();
 		}
 
-		private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
+        
+
+        private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
 		{
 			//If the ghost is the UW ghost, change the ID to the CC echo
 			//Since this method is only responsible for deciding whether an echo should spawn or not, changing the ID to the CC echo
@@ -71,14 +79,15 @@ namespace Stormcat
 				string myRoom = self.cameras[0].room.roomSettings.name.ToString();
 				if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
 				{
-					self.cameras[0].screenShake += 0.1f;
+					self.cameras[0].screenShake = 0.2f;
 				}
-				//self.cameras[0].screenShake += 0.2f;
 			}
 		}
 
+        
 
-		private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
+
+        private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
 		{
 			if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
 			{
@@ -271,8 +280,12 @@ namespace Stormcat
 			orig(self, eu);
 		}
 
-		//Colour changes
-		void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
+
+        
+
+
+        //Colour changes
+        void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
 		{
 			orig(self, sLeaser, rCam, palette);
 			var data = Data(self.player);
