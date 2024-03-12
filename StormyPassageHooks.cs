@@ -20,13 +20,92 @@ public static class StormyPassageHooks
         //On.FAtlasManager.GetElementWithName += FAtlasManager_GetElementWithName;
 
 		//TO COME LATER WHEN WE HAVE PASSAGE SCREEN ART
-        //On.Menu.MenuScene.BuildScene += BP_BuildScene;
-        //On.Menu.CustomEndGameScreen.GetDataFromSleepScreen += BP_GetDataFromSleepScreen;
+        On.Menu.MenuScene.BuildScene += BP_BuildScene;
+		On.Menu.CustomEndGameScreen.GetDataFromSleepScreen += BP_GetDataFromSleepScreen;
 
-        On.Menu.EndgameMeter.NotchMeter.ctor += NotchMeter_ctor;
+		On.Menu.EndgameMeter.NotchMeter.ctor += NotchMeter_ctor;
         On.Player.SlugcatGrab += Player_SlugcatGrab;
         On.GameSession.ctor += GameSession_ctor;
     }
+
+
+    public static void BP_BuildScene(On.Menu.MenuScene.orig_BuildScene orig, Menu.MenuScene self)
+    {
+        if (self.sceneID == EnumExt_MyScene.Endgame_Storm)
+        {
+            //FIRST PART ALL OF THEM GET
+            if (self is Menu.InteractiveMenuScene)
+            {
+                (self as Menu.InteractiveMenuScene).idleDepths = new List<float>();
+            }
+            Vector2 vector = new Vector2(0f, 0f);
+            // vector..ctor(0f, 0f);
+
+            //NOW THE CUSTOM PART
+            self.sceneFolder = "Scenes" + Path.DirectorySeparatorChar.ToString() + "Endgame - Storm";
+            if (self.flatMode)
+            {
+                self.AddIllustration(new Menu.MenuIllustration(self.menu, self, self.sceneFolder, "Endgame - Storm - Flat", new Vector2(683f, 384f), false, true));
+            }
+            else
+            {
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 7", new Vector2(71f, 49f), 2.3f, Menu.MenuDepthIllustration.MenuShader.Basic));
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 6", new Vector2(71f, 49f), 2.2f, Menu.MenuDepthIllustration.MenuShader.Basic)); //Lighten
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 5", new Vector2(71f, 49f), 1.5f, Menu.MenuDepthIllustration.MenuShader.Basic)); //Normal
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 4", new Vector2(71f, 49f), 1.7f, Menu.MenuDepthIllustration.MenuShader.Basic));
+                //self.depthIllustrations[self.depthIllustrations.Count - 1].setAlpha = new float?(0.5f);
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 3", new Vector2(71f, 49f), 1.7f, Menu.MenuDepthIllustration.MenuShader.Basic)); //LightEdges
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 2", new Vector2(71f, 49f), 1.5f, Menu.MenuDepthIllustration.MenuShader.Basic));
+                self.AddIllustration(new Menu.MenuDepthIllustration(self.menu, self, self.sceneFolder, "Storm - 1", new Vector2(171f, 49f), 1.3f, Menu.MenuDepthIllustration.MenuShader.Basic)); //LightEdges
+                                                                                                                                                                                                  //(self as Menu.InteractiveMenuScene).idleDepths.Add(2.2f);
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(2.2f); //HMMM THIS ONE?
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(2.2f);
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(1.7f);
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(1.7f);
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(1.5f);
+                (self as Menu.InteractiveMenuScene).idleDepths.Add(1.3f);
+            }
+            self.AddIllustration(new Menu.MenuIllustration(self.menu, self, self.sceneFolder, "Storm - Symbol", new Vector2(683f, 35f), true, false));
+            Menu.MenuIllustration MenuIllustration4 = self.flatIllustrations[self.flatIllustrations.Count - 1];
+            MenuIllustration4.pos.x = MenuIllustration4.pos.x - (0.01f + self.flatIllustrations[self.flatIllustrations.Count - 1].size.x / 2f);
+
+        }
+        else
+            orig.Invoke(self);
+    }
+
+
+    private static void BP_GetDataFromSleepScreen(On.Menu.CustomEndGameScreen.orig_GetDataFromSleepScreen orig, Menu.CustomEndGameScreen self, WinState.EndgameID endGameID)
+    {
+        if (endGameID == EnumExt_MyMod.Storm)
+        {
+            //GOTTA REPLICATE THE MENU SCREEN
+            Menu.MenuScene.SceneID sceneID = Menu.MenuScene.SceneID.Empty;
+            sceneID = EnumExt_MyScene.Endgame_Storm;
+            self.scene = new Menu.InteractiveMenuScene(self, self.pages[0], sceneID);
+            self.pages[0].subObjects.Add(self.scene);
+            self.pages[0].Container.AddChild(self.blackSprite);
+            if (self.scene.flatIllustrations.Count > 0)
+            {
+                self.scene.flatIllustrations[0].RemoveSprites();
+                self.scene.flatIllustrations[0].Container.AddChild(self.scene.flatIllustrations[0].sprite);
+                self.glyphIllustration = self.scene.flatIllustrations[0];
+                self.glyphGlowSprite = new FSprite("Futile_White", true);
+                self.glyphGlowSprite.shader = self.manager.rainWorld.Shaders["FlatLight"];
+                self.pages[0].Container.AddChild(self.glyphGlowSprite);
+                self.localBloomSprite = new FSprite("Futile_White", true);
+                self.localBloomSprite.shader = self.manager.rainWorld.Shaders["LocalBloom"];
+                self.pages[0].Container.AddChild(self.localBloomSprite);
+            }
+            self.titleLabel = new Menu.MenuLabel(self, self.pages[0], "", new Vector2(583f, 5f), new Vector2(200f, 30f), false, null);
+            self.pages[0].subObjects.Add(self.titleLabel);
+            self.titleLabel.text = self.Translate(WinState.PassageDisplayName(endGameID));
+        }
+        else
+            orig.Invoke(self, endGameID);
+    }
+
+
 
     private static void NotchMeter_ctor(On.Menu.EndgameMeter.NotchMeter.orig_ctor orig, Menu.EndgameMeter.NotchMeter self, Menu.EndgameMeter owner)
     {
