@@ -40,7 +40,7 @@ namespace Stormcat
 			//Graphics hooks
 			On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
 			On.PlayerGraphics.Update += PlayerGraphics_Update;
-            //On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
+            On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
 
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
@@ -71,7 +71,21 @@ namespace Stormcat
 			return orig(ghostID, karma, karmaCap, ghostPreviouslyEncountered, playingAsRed);
 		}
 
-		public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
+        private bool VultureAbstractAI_RoomViableRoamDestination(On.VultureAbstractAI.orig_RoomViableRoamDestination orig, VultureAbstractAI self, int room)
+        {
+            bool result = orig(self, room);
+            //CHOOSE ROOMS VULTURES WON'T FLY INTO (doesn't seem to work atm, will return to this later)
+            string myRoom = self.world.GetAbstractRoom(room).name.ToString();
+            if (myRoom == "GW_C05" || myRoom == "NC_C01") //EXAMPLES - PUT ANY ROOM NAMES IN HERE YOU WANT
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+
+        public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
 		{
 			orig(self);
 			if (self.processActive && !self.GamePaused && self.cameras[0].room != null)
@@ -281,7 +295,47 @@ namespace Stormcat
 		}
 
 
-        
+        //OUTSTRETCHED ARMS FROM NOMAD'S GLIDING (modified)
+        private bool SlugcatHand_EngageInMovement(On.SlugcatHand.orig_EngageInMovement orig, SlugcatHand self)
+        {
+            Player player = (self.owner.owner as Player);
+            var data = Data(player);
+
+            if (data.playerGliding)
+            {
+                // Hand position calculation and assignment
+                var playerOrientation = player.bodyChunks[0].pos - player.bodyChunks[1].pos; // A line from the top, to bottom of the player
+
+                Vector2 tposePos =
+                    (player.bodyMode == Player.BodyModeIndex.Stand ? 50 : 52) * // The vector's amplitude
+                    (self.limbNumber - 0.5f) * // Differentiate left and right hands
+                    new Vector2(playerOrientation.y, -playerOrientation.x).normalized; // The player's orientation rotated 90 degrees
+
+                tposePos += (player.bodyMode == Player.BodyModeIndex.Stand ? -5f : -1f) * playerOrientation.normalized; // Move downward relative to player orientation
+
+				//WE CAN CLEAN THIS UP BETTER
+                self.quickness = 1f;
+                self.huntSpeed = 50f;
+
+                //LERP BETWEEN THE TPOSE WHILE NOT MOVING FAST AND OUTSTRETCHED WHILE GLIDING FORWARD
+                /*
+                self.mode = Limb.Mode.HuntRelativePosition;
+				Vector2 targetPos = new Vector2(-20 * (self.limbNumber - 0.5f), 35);
+                float lerpFactor = Mathf.InverseLerp(20f, 5f, player.bodyChunks[0].pos.y - player.bodyChunks[1].pos.y); //OK TRY USING Y HEIGHT OF BODY CHUNKS RATHER THAN SPEED. WE CAN STILL BE MOVING SPEEDY WHILE STANDING UPRIGHT.
+                targetPos = Vector2.Lerp(tposePos, targetPos, lerpFactor);
+                targetPos = tposePos;
+                self.relativeHuntPos = targetPos; 
+				*/
+
+                //NORMAL TPOSE
+                self.mode = Limb.Mode.HuntAbsolutePosition;
+                self.absoluteHuntPos = player.bodyChunks[0].pos + tposePos;
+                return false; //don't run orig for absolutehuntpos
+			}
+
+            return orig(self);
+        }
+
 
 
         //Colour changes
