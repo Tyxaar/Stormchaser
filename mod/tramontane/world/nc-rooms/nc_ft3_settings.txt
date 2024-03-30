@@ -1,0 +1,3 @@
+Effects: Darkness-0.3586957-268-131, 
+PlacedObjects: LightSource><252.2134><672.7225><0.5000106~EffectColor1~2~169~-276.9828~-250.4115~1~0~None~0~0, LightSource><679><670.9999><0.5000106~EffectColor1~2~169~-276.9828~-250.4115~1~0~None~0~0, LightSource><539.9999><671><0.5000106~EffectColor1~2~169~-276.9828~-250.4115~1~0~None~0~0, LightSource><395.7856><668.7375><0.5000106~EffectColor1~2~169~-276.9828~-250.4115~1~0~None~0~0, 
+FadePalette: 332, 0.3043478, 0.3043478

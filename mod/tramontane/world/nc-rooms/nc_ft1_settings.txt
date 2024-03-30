@@ -1,0 +1,12 @@
+Template: NONE
+Clouds: 0.3043478
+Grime: 0
+Palette: 331
+EffectColorA: 8
+EffectColorB: 3
+Effects: Lightning-0.7065217-20-20, ExtraLoudThunder-0.8043478-20-81, GreenSparks-0.3586957-288-83, LightRain-0.4021739-289-23, ElectricDeath-0.5-284-138, AboveCloudsView-1-13-132, 
+PlacedObjects: CustomDecal><849.3162><383.3419><-13~343~357~341~355~-3~-499~-225~0.3152174~1~0~rustb2~0.5437556~1~0.4021752~1~0.6847826~1~0.3478261~1, CustomDecal><1130.376><360.8439><4~352~372~358~366~1~-280~-359~0.3271511~1~0~rustb3~0.5652453~0~0.7608696~0~0~0~0~0, LightSource><2416.562><52.93931><0.5041597~EffectColor1~-1~129~50~86.60254~0~0~None~0~0, LightSource><2477><52.99998><0.5041597~EffectColor1~-1~129~50~86.60254~0~0~None~0~0, LightSource><2539.92><54.98077><0.5041597~EffectColor1~-1~129~50~86.60254~0~0~None~0~0, LightSource><2599.991><56.11548><0.5041597~EffectColor1~-1~129~50~86.60254~0~0~None~0~0, CustomDecal><2823.449><95.86377><5~258~-90~259~-87~-6~0~0~0.3043478~0.4347826~0~vertical pink~0.2167027~0.25~0.4889898~0.5135684~0.5869353~0.2608523~0.1847826~0.75, DangleFruit><310.8205><310.3954><-222~125~2~3, DangleFruit><358.6476><289.54><-278.0007~62.99988~2~3, DangleFruit><443.8123><308.1912><0~0~2~3, 
+AmbientSounds: OMNI><msc-structurestrain.ogg><719.1501><384.8679><0.5><0.2173913, OMNI><am_win-strongwnd2.ogg><722.5><301.05><0.4565217><1, OMNI><am_win_hilltop.ogg><722.551><216.48><0.6086956><1, OMNI><am_win-nicewnd.ogg><723.0599><131.188><0.3043478><1, OMNI><am_rain-rumbles.ogg><717.8965><458.1712><0.5><1, OMNI><am_rain-rollingthunder.ogg><535.9464><452.7878><0.75><1, OMNI><am_rain-quietthunder.ogg><537.8524><369.3651><0.8586956><1, 
+FadePalette: 330, 0.4021739, 0.3043478, 0.2065217
+MorePalette0: 10, 0.4021739, 0.4565217, 0.5
+BackgroundOffset: 0,80

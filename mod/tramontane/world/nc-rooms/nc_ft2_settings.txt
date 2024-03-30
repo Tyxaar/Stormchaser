@@ -1,0 +1,7 @@
+Template: NC_SettingsTemplate_indoorsthunder
+Clouds: 0.8043478
+Effects: Lightning-0.6086956-19-78, 
+PlacedObjects: DataPearl><160.0174><159.0508><0~0~0~0~Misc~0, 
+AmbientSounds: SPOT><so_ind-turbine.ogg><556.3004><376.738><0.4021739><1><488.3593><1056.587><-77.35535><-76.35535><0><0.1, 
+FadePalette: 330, 0.1086956, 0.1086956
+MorePalette0: 10, 0.3043478, 0.3043478

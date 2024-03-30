@@ -36,61 +36,79 @@ namespace Stormcat
         {
             On.RainWorld.OnModsInit += StormcatValues.WrapInit(LoadResources);
 
-            //Gameplay hooks
-            On.Player.MovementUpdate += Player_MovementUpdate;
-            On.Player.Jump += Player_Jump;
-            //Graphics hooks
-            On.PlayerGraphics.AddToContainer += PlayerGraphics_AddToContainer;
-            On.PlayerGraphics.InitiateSprites += PlayerGraphics_InitiateSprites;
-            On.PlayerGraphics.DrawSprites += PlayerGraphics_DrawSprites;
-            On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
-            On.PlayerGraphics.Update += PlayerGraphics_Update;
-            //Misc hooks
-            On.RainCycle.ctor += RainCycle_ctor;
-            On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
-                                                             //Quest hooks
-            On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
+			//Gameplay hooks
+			On.Player.MovementUpdate += Player_MovementUpdate;
+			On.Player.Jump += Player_Jump;
+			//Graphics hooks
+			On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
+			On.PlayerGraphics.Update += PlayerGraphics_Update;
+            On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
+
+			//Misc hooks
+			On.RainCycle.ctor += RainCycle_ctor;
+			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
+            //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
+
+			//Quest hooks
+			On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
+            On.SLOracleBehaviorHasMark.MoonConversation.AddEvents += MoonConversation_AddEvents;
+
             //echo hooks
             On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
-            StormyPassageHooks.Apply();
-        }
+			StormyPassageHooks.Apply();
+		}
+
+        
 
         private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
-        {
-            //If the ghost is the UW ghost, change the ID to the CC echo
-            //Since this method is only responsible for deciding whether an echo should spawn or not, changing the ID to the CC echo
-            //will cause the echo to share the same spawning rules as the CC echo (i.e. requiring priming) without affecting any other aspects of it
-            if (Custom.rainWorld.progression.currentSaveState.saveStateNumber == Stormchaser && ghostID == GhostWorldPresence.GhostID.UW)
-            {
-                ghostID = GhostWorldPresence.GhostID.CC;
-            }
+		{
+			//If the ghost is the UW ghost, change the ID to the CC echo
+			//Since this method is only responsible for deciding whether an echo should spawn or not, changing the ID to the CC echo
+			//will cause the echo to share the same spawning rules as the CC echo (i.e. requiring priming) without affecting any other aspects of it
+			if (Custom.rainWorld.progression.currentSaveState.saveStateNumber == Stormchaser && ghostID == GhostWorldPresence.GhostID.UW)
+			{
+				ghostID = GhostWorldPresence.GhostID.CC;
+			}
 
             return orig(ghostID, karma, karmaCap, ghostPreviouslyEncountered, playingAsRed);
         }
 
-        public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
+        private bool VultureAbstractAI_RoomViableRoamDestination(On.VultureAbstractAI.orig_RoomViableRoamDestination orig, VultureAbstractAI self, int room)
         {
-            orig(self);
-            if (self.processActive && !self.GamePaused && self.cameras[0].room != null)
+            bool result = orig(self, room);
+            //CHOOSE ROOMS VULTURES WON'T FLY INTO (doesn't seem to work atm, will return to this later)
+            string myRoom = self.world.GetAbstractRoom(room).name.ToString();
+            if (myRoom == "GW_C05" || myRoom == "NC_C01") //EXAMPLES - PUT ANY ROOM NAMES IN HERE YOU WANT
             {
-                string myRoom = self.cameras[0].room.roomSettings.name.ToString();
-                if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
-                {
-                    self.cameras[0].screenShake += 0.1f;
-                }
-                //self.cameras[0].screenShake += 0.2f;
+                result = false;
             }
+
+            return result;
         }
 
-        private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
-        {
-            if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
-            {
-                const float min1 = 2.5f;
-                const float max1 = 4f;
 
-                const float min2 = 8.5f;
-                const float max2 = 10f;
+        public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
+		{
+			orig(self);
+			if (self.processActive && !self.GamePaused && self.cameras[0].room != null)
+			{
+				string myRoom = self.cameras[0].room.roomSettings.name.ToString();
+				if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
+				{
+					self.cameras[0].screenShake = 0.2f;
+				}
+			}
+		}
+
+        
+
+
+        private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
+		{
+			if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
+			{
+				const float min1 = 2.5f;
+				const float max1 = 4f;
 
                 minutes = Random.value < 0.5f ? Mathf.Lerp(min1, max1, Random.value) : Mathf.Lerp(min2, max2, Random.value);
             }
@@ -360,10 +378,55 @@ namespace Stormcat
                 data.glideCooldown = 5;
             }
 
-            //Logs
-            //Debug.Log("Glide Cooldown" + data.glideCooldown);
-            orig(self, eu);
+
+        //OUTSTRETCHED ARMS FROM NOMAD'S GLIDING (modified)
+        private bool SlugcatHand_EngageInMovement(On.SlugcatHand.orig_EngageInMovement orig, SlugcatHand self)
+        {
+            Player player = (self.owner.owner as Player);
+            var data = Data(player);
+
+            if (data.playerGliding)
+            {
+                // Hand position calculation and assignment
+                var playerOrientation = player.bodyChunks[0].pos - player.bodyChunks[1].pos; // A line from the top, to bottom of the player
+
+                Vector2 tposePos =
+                    (player.bodyMode == Player.BodyModeIndex.Stand ? 50 : 52) * // The vector's amplitude
+                    (self.limbNumber - 0.5f) * // Differentiate left and right hands
+                    new Vector2(playerOrientation.y, -playerOrientation.x).normalized; // The player's orientation rotated 90 degrees
+
+                tposePos += (player.bodyMode == Player.BodyModeIndex.Stand ? -5f : -1f) * playerOrientation.normalized; // Move downward relative to player orientation
+
+				//WE CAN CLEAN THIS UP BETTER
+                self.quickness = 1f;
+                self.huntSpeed = 50f;
+
+                //LERP BETWEEN THE TPOSE WHILE NOT MOVING FAST AND OUTSTRETCHED WHILE GLIDING FORWARD
+                /*
+                self.mode = Limb.Mode.HuntRelativePosition;
+				Vector2 targetPos = new Vector2(-20 * (self.limbNumber - 0.5f), 35);
+                float lerpFactor = Mathf.InverseLerp(20f, 5f, player.bodyChunks[0].pos.y - player.bodyChunks[1].pos.y); //OK TRY USING Y HEIGHT OF BODY CHUNKS RATHER THAN SPEED. WE CAN STILL BE MOVING SPEEDY WHILE STANDING UPRIGHT.
+                targetPos = Vector2.Lerp(tposePos, targetPos, lerpFactor);
+                targetPos = tposePos;
+                self.relativeHuntPos = targetPos; 
+				*/
+
+                //NORMAL TPOSE
+                self.mode = Limb.Mode.HuntAbsolutePosition;
+                self.absoluteHuntPos = player.bodyChunks[0].pos + tposePos;
+                return false; //don't run orig for absolutehuntpos
+			}
+
+            return orig(self);
         }
+
+
+
+        //Colour changes
+        void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
+		{
+			orig(self, sLeaser, rCam, palette);
+			var data = Data(self.player);
 
         //Colour changes
         void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
