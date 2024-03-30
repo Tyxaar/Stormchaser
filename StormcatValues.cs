@@ -14,83 +14,83 @@ using UnityEngine;
 
 namespace Stormcat
 {
-	public class PlayerValues
-	{
-		public PlayerValues(Player self)
-		{
-			playerRef = new WeakReference<Player>(self);
-		}
+    public class PlayerValues
+    {
+        public PlayerValues(Player self)
+        {
+            playerRef = new WeakReference<Player>(self);
+        }
 
-		public WeakReference<Player> playerRef;
-		public int[] armFlapMeshIndices = new int[2];
-		public int  glideCooldown = 80;
-		public int  zoomDirection;
-		public int  zoomSpeed;
-		public bool playerGliding;
-		public bool canDoubleJump;
-		public bool canGlide;
+        public WeakReference<Player> playerRef;
+        public int[] armFlapMeshIndices = new int[2];
+        public int glideCooldown = 80;
+        public int zoomDirection;
+        public int zoomSpeed;
+        public bool playerGliding;
+        public bool canDoubleJump;
+        public bool canGlide;
 
-		public Creature.Grasp[] grasps
-		{
-			get
-			{
-				playerRef.TryGetTarget(out var player);
-				return player.grasps;
-			}
-		}
+        public Creature.Grasp[] grasps
+        {
+            get
+            {
+                playerRef.TryGetTarget(out var player);
+                return player.grasps;
+            }
+        }
 
-		public Color tailColour;
-		public Color bodyColour;
-		public Color eyeColour;
+        public Color tailColour;
+        public Color bodyColour;
+        public Color eyeColour;
 
-		public bool holdingGlide => playerRef.TryGetTarget(out var player) && player.input[0].jmp && player.canJump == 0 && player.canWallJump == 0;
-		public bool holdingBigItem => playerRef.TryGetTarget(out var player) && player != null && player.grasps[0]?.grabbed is TubeWorm || player.Grabability(player.grasps[0]?.grabbed) is Player.ObjectGrabability.TwoHands|| player.Grabability(player.grasps[1]?.grabbed) is Player.ObjectGrabability.TwoHands;
-		public bool rechargeGlide
-		{
-			get
-			{
-				playerRef.TryGetTarget(out var player);
-				string[] bodyModes = { "Stand", "CorridorClimb", "WallClimb", "Swimming", "ClimbingOnBeam" };
-				for (int i = 0; i < bodyModes.Length; i++)
-				{
-					Player.BodyModeIndex bodyRef = new Player.BodyModeIndex(bodyModes[i]);
-					if (player.bodyMode == bodyRef)
-					{
-						return true;
-					}
-				}
-				return false;
-			}
-		}
-		public bool touchingTerrain => playerRef.TryGetTarget(out var player) && player != null && (player.bodyChunks[0].contactPoint != default || player.bodyChunks[1].contactPoint != default || player.bodyMode != Player.BodyModeIndex.Default || player.animation == Player.AnimationIndex.Flip || rechargeGlide);
-		public bool triggerGlide => playerRef.TryGetTarget(out var player) && glideCooldown == 0 && !touchingTerrain && canDoubleJump && player.input[0].jmp && !player.input[1].jmp;
+        public bool holdingGlide => playerRef.TryGetTarget(out var player) && player.input[0].jmp && player.canJump == 0 && player.canWallJump == 0;
+        public bool holdingBigItem => playerRef.TryGetTarget(out var player) && player != null && player.grasps[0]?.grabbed is TubeWorm || player.Grabability(player.grasps[0]?.grabbed) is Player.ObjectGrabability.TwoHands || player.Grabability(player.grasps[1]?.grabbed) is Player.ObjectGrabability.TwoHands;
+        public bool rechargeGlide
+        {
+            get
+            {
+                playerRef.TryGetTarget(out var player);
+                string[] bodyModes = { "Stand", "CorridorClimb", "WallClimb", "Swimming", "ClimbingOnBeam" };
+                for (int i = 0; i < bodyModes.Length; i++)
+                {
+                    Player.BodyModeIndex bodyRef = new Player.BodyModeIndex(bodyModes[i]);
+                    if (player.bodyMode == bodyRef)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        public bool touchingTerrain => playerRef.TryGetTarget(out var player) && player != null && (player.bodyChunks[0].contactPoint != default || player.bodyChunks[1].contactPoint != default || player.bodyMode != Player.BodyModeIndex.Default || player.animation == Player.AnimationIndex.Flip || rechargeGlide);
+        public bool triggerGlide => playerRef.TryGetTarget(out var player) && glideCooldown == 0 && !touchingTerrain && canDoubleJump && player.input[0].jmp && !player.input[1].jmp;
 
-	}
+    }
 }
 
 internal static class StormcatValues
 {
-	private static bool _initialized;
+    private static bool _initialized;
 
-	// Ensure resources are only loaded once and that failing to load them will not break other mods
-	public static On.RainWorld.hook_OnModsInit WrapInit(Action<RainWorld> loadResources)
-	{
-		return (orig, self) =>
-		{
-			orig(self);
+    // Ensure resources are only loaded once and that failing to load them will not break other mods
+    public static On.RainWorld.hook_OnModsInit WrapInit(Action<RainWorld> loadResources)
+    {
+        return (orig, self) =>
+        {
+            orig(self);
 
-			try
-			{
-				if (!_initialized)
-				{
-					_initialized = true;
-					loadResources(self);
-				}
-			}
-			catch (Exception e)
-			{
-				Debug.LogException(e);
-			}
-		};
-	}
+            try
+            {
+                if (!_initialized)
+                {
+                    _initialized = true;
+                    loadResources(self);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        };
+    }
 }
