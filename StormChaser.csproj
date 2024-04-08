@@ -19,6 +19,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <Reference Include="netstandard" />
       <Reference Include="Assembly-CSharp-firstpass">
         <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
 		  <Private>false</Private>
@@ -58,6 +59,9 @@
       <Reference Include="SlugBase">
         <HintPath>lib\SlugBase.dll</HintPath>
 		  <Private>false</Private>
+      </Reference>
+      <Reference Include="Unity.Mathematics">
+        <HintPath>lib\Unity.Mathematics.dll</HintPath>
       </Reference>
       <Reference Include="UnityEngine">
         <HintPath>lib\UnityEngine.dll</HintPath>
