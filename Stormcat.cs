@@ -50,7 +50,7 @@ namespace Stormcat
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
 			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
-															 //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
+			//On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
 
 			//Quest hooks
 			On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
@@ -98,7 +98,7 @@ namespace Stormcat
 				string myRoom = self.cameras[0].room.roomSettings.name.ToString();
 				if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
 				{
-					self.cameras[0].screenShake = 0.2f;
+					self.cameras[0].screenShake = 0.1f;
 				}
 			}
 		}
@@ -365,9 +365,10 @@ namespace Stormcat
 				}
 			}
 
-			//Recharge the glide when on a wall, floor, or pole.
-			if (data.rechargeGlide && self.room.gravity != 0)
-			{
+            //Recharge the glide when on a wall, floor, or pole.
+            //OKAY BUT STOP GLIDING WHEN WE LAND
+            if ((data.rechargeGlide && self.room.gravity != 0) || (self.bodyMode == Player.BodyModeIndex.Crawl || self.bodyMode == Player.BodyModeIndex.ClimbingOnBeam || self.bodyMode == Player.BodyModeIndex.Swimming))
+            {
 				self.gravity = normalGravity;
 				self.customPlayerGravity = normalGravity;
 				data.canDoubleJump = true;
@@ -488,7 +489,7 @@ namespace Stormcat
 		private void LoadResources(RainWorld rainWorld)
 		{
 			//Futile.atlasManager.LoadImage("atlases/StormAtlas"); //LoadImage NOTABLY DIFFERENT THAN LoadAtlas
-			//Futile.atlasManager.LoadAtlas("atlases/StormAtlas");
+			Futile.atlasManager.LoadAtlas("atlases/StormAtlas");
 			var a = Futile.atlasManager.LoadAtlas("atlases/armstormy");
 			Debug.Log($"stormy atlas: {a}");
 		}
