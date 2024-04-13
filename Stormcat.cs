@@ -2,17 +2,10 @@
 using BepInEx;
 using UnityEngine;
 using SlugBase.Features;
-using static SlugBase.Features.FeatureTypes;
 using System.Runtime.CompilerServices;
 using SlugBase.DataTypes;
 using RWCustom;
-using JetBrains.Annotations;
-using IL;
-using On;
 using Random = UnityEngine.Random;
-using DevInterface;
-using System.Security.Cryptography.X509Certificates;
-using Mono.Cecil;
 
 namespace Stormcat
 {
@@ -165,10 +158,10 @@ namespace Stormcat
 		{
 			orig(self, sLeaser, rCam, timeStacker, camPos);
 
-			if (self.player.slugcatStats.name != Stormchaser)
+            if (self.player.slugcatStats.name != Stormchaser)
 				return;
 
-			var data = Data(self.player);
+            var data = Data(self.player);
 
 			TriangleMesh[] flapMeshes = { (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[0]], (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[1]] };
 
@@ -176,7 +169,11 @@ namespace Stormcat
 
 			for (int i = 0; i < 2; i++)
 			{
-				int armFrameNum = int.Parse(sLeaser.sprites[5 + i].element.name.Substring(9)); // this is so funny
+				//REPLACE ARM SPRITES WITH THICKER CUSTOM SPRITES
+				string elementName = sLeaser.sprites[5 + i].element.name.Replace("Player", "Stormy");
+                sLeaser.sprites[5 + i].element = Futile.atlasManager.GetElementWithName(elementName);
+
+                int armFrameNum = int.Parse(sLeaser.sprites[5 + i].element.name.Substring(9)); // this is so funny
 
 				//sLeaser.sprites[5 + i].element = Futile.atlasManager.GetElementWithName($"StormyArm{armFrameNum}.png");
 
@@ -205,7 +202,7 @@ namespace Stormcat
 				flapMeshes[i].vertices[6] = handFlapAnchorPos;
 				flapMeshes[i].vertices[7] = handFlapAnchorPos;
 
-				Debug.Log(armStraightness);
+				//Debug.Log(armStraightness);
 
 				flapMeshes[i].isVisible = sLeaser.sprites[5 + i].isVisible;
 			}
@@ -313,15 +310,19 @@ namespace Stormcat
 			if (data.holdingGlide && data.canGlide && data.playerGliding && self.mainBodyChunk.vel.y < 0f && !data.touchingTerrain)
 			{
 				//Apply glide physics changes
-				self.slugOnBack.interactionLocked = true;
-
-				if (self.slugOnBack != null && self.slugOnBack.slugcat != null && self.slugOnBack.HasASlug)
+				if (self.slugOnBack != null)
 				{
-					foreach (BodyChunk chunk in self.slugOnBack.slugcat.bodyChunks)
-					{
-						chunk.vel.y = Custom.LerpAndTick(chunk.vel.y, -0.5f, 0.2f, 0.5f);
-					}
-				}
+                    self.slugOnBack.interactionLocked = true;
+
+                    if (self.slugOnBack.slugcat != null && self.slugOnBack.HasASlug)
+                    {
+                        foreach (BodyChunk chunk in self.slugOnBack.slugcat.bodyChunks)
+                        {
+                            chunk.vel.y = Custom.LerpAndTick(chunk.vel.y, -0.5f, 0.2f, 0.5f);
+                        }
+                    }
+                }
+				
 				self.animation = Player.AnimationIndex.RocketJump;
 				foreach (BodyChunk chunk in self.bodyChunks)
 				{
