@@ -1,16 +1,11 @@
-﻿using System;
-using BepInEx;
+﻿using BepInEx;
 using UnityEngine;
 using SlugBase.Features;
 using static SlugBase.Features.FeatureTypes;
 using System.Runtime.CompilerServices;
 using SlugBase.DataTypes;
 using RWCustom;
-using JetBrains.Annotations;
-using IL;
-using On;
 using Random = UnityEngine.Random;
-using DevInterface;
 
 namespace Stormcat
 {
@@ -56,7 +51,7 @@ namespace Stormcat
 			StormyPassageHooks.Apply();
 		}
 
-        
+
 
         private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
 		{
@@ -118,7 +113,7 @@ namespace Stormcat
 
 		private void PlayerGraphics_Update(On.PlayerGraphics.orig_Update orig, PlayerGraphics self)
 		{
-			orig(self);
+            orig(self);
 			var data = Data(self.player);
 
 			if (self.player.slugcatStats.name != Stormchaser || self.lightSource == null)

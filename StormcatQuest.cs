@@ -1,12 +1,5 @@
 ﻿using BepInEx;
-using System;
-using BepInEx;
 using UnityEngine;
-using SlugBase.Features;
-using static SlugBase.Features.FeatureTypes;
-using System.Runtime.CompilerServices;
-using SlugBase.DataTypes;
-using RWCustom;
 
 
 namespace Stormcat
