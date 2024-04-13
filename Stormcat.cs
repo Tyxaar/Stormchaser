@@ -93,7 +93,7 @@ namespace Stormcat
 				string myRoom = self.cameras[0].room.roomSettings.name.ToString();
 				if (myRoom == "NC_A02" || myRoom == "NC_C01" || myRoom == "NC_B01" || myRoom == "NC_A03" || myRoom == "NC_A04" || myRoom == "NC_A05" || myRoom == "NC_B02" || myRoom == "NC_A06")
 				{
-					self.cameras[0].screenShake = 0.2f;
+					self.cameras[0].screenShake = 0.1f;
 				}
 			}
 		}
@@ -267,8 +267,9 @@ namespace Stormcat
 				}
 			}
 
-			//Recharge the glide when on a wall, floor, or pole.
-			if (data.rechargeGlide && self.room.gravity != 0)
+            //Recharge the glide when on a wall, floor, or pole.
+            //OKAY BUT STOP GLIDING WHEN WE LAND
+            if ((data.rechargeGlide && self.room.gravity != 0) || (self.bodyMode == Player.BodyModeIndex.Crawl || self.bodyMode == Player.BodyModeIndex.ClimbingOnBeam || self.bodyMode == Player.BodyModeIndex.Swimming))
 			{
 				self.gravity = normalGravity;
 				self.customPlayerGravity = normalGravity;
