@@ -22,9 +22,10 @@ namespace Stormcat
         }
 
         public WeakReference<Player> playerRef;
-        public int  glideCooldown = 80;
-        public int  zoomDirection;
-        public int  zoomSpeed;
+        public int[] armFlapMeshIndices = new int[2];
+        public int glideCooldown = 80;
+        public int zoomDirection;
+        public int zoomSpeed;
         public bool playerGliding;
         public bool canDoubleJump;
         public bool canGlide;
@@ -43,7 +44,7 @@ namespace Stormcat
         public Color eyeColour;
 
         public bool holdingGlide => playerRef.TryGetTarget(out var player) && player.input[0].jmp && player.canJump == 0 && player.canWallJump == 0;
-        public bool holdingBigItem => playerRef.TryGetTarget(out var player) && player != null && player.grasps[0]?.grabbed is TubeWorm || player.Grabability(player.grasps[0]?.grabbed) is Player.ObjectGrabability.TwoHands|| player.Grabability(player.grasps[1]?.grabbed) is Player.ObjectGrabability.TwoHands;
+        public bool holdingBigItem => playerRef.TryGetTarget(out var player) && player != null && player.grasps[0]?.grabbed is TubeWorm || player.Grabability(player.grasps[0]?.grabbed) is Player.ObjectGrabability.TwoHands || player.Grabability(player.grasps[1]?.grabbed) is Player.ObjectGrabability.TwoHands;
         public bool rechargeGlide
         {
             get

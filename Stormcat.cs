@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using UnityEngine;
 using SlugBase.Features;
-using static SlugBase.Features.FeatureTypes;
 using System.Runtime.CompilerServices;
 using SlugBase.DataTypes;
 using RWCustom;
@@ -33,27 +32,30 @@ namespace Stormcat
 			On.Player.MovementUpdate += Player_MovementUpdate;
 			On.Player.Jump += Player_Jump;
 			//Graphics hooks
+			On.PlayerGraphics.AddToContainer += PlayerGraphics_AddToContainer;
+			On.PlayerGraphics.InitiateSprites += PlayerGraphics_InitiateSprites;
+			On.PlayerGraphics.DrawSprites += PlayerGraphics_DrawSprites;
 			On.PlayerGraphics.ApplyPalette += PlayerGraphics_ApplyPalette;
 			On.PlayerGraphics.Update += PlayerGraphics_Update;
-            On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
+			On.SlugcatHand.EngageInMovement += SlugcatHand_EngageInMovement;
 
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
 			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
-            //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
+			//On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
 
 			//Quest hooks
 			On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
-            On.SLOracleBehaviorHasMark.MoonConversation.AddEvents += MoonConversation_AddEvents;
+			On.SLOracleBehaviorHasMark.MoonConversation.AddEvents += MoonConversation_AddEvents;
 
-            //echo hooks
-            On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
+			//echo hooks
+			On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
 			StormyPassageHooks.Apply();
 		}
 
 
 
-        private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
+		private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
 		{
 			//If the ghost is the UW ghost, change the ID to the CC echo
 			//Since this method is only responsible for deciding whether an echo should spawn or not, changing the ID to the CC echo
@@ -66,21 +68,21 @@ namespace Stormcat
 			return orig(ghostID, karma, karmaCap, ghostPreviouslyEncountered, playingAsRed);
 		}
 
-        private bool VultureAbstractAI_RoomViableRoamDestination(On.VultureAbstractAI.orig_RoomViableRoamDestination orig, VultureAbstractAI self, int room)
-        {
-            bool result = orig(self, room);
-            //CHOOSE ROOMS VULTURES WON'T FLY INTO (doesn't seem to work atm, will return to this later)
-            string myRoom = self.world.GetAbstractRoom(room).name.ToString();
-            if (myRoom == "GW_C05" || myRoom == "NC_C01") //EXAMPLES - PUT ANY ROOM NAMES IN HERE YOU WANT
-            {
-                result = false;
-            }
+		private bool VultureAbstractAI_RoomViableRoamDestination(On.VultureAbstractAI.orig_RoomViableRoamDestination orig, VultureAbstractAI self, int room)
+		{
+			bool result = orig(self, room);
+			//CHOOSE ROOMS VULTURES WON'T FLY INTO (doesn't seem to work atm, will return to this later)
+			string myRoom = self.world.GetAbstractRoom(room).name.ToString();
+			if (myRoom == "GW_C05" || myRoom == "NC_C01") //EXAMPLES - PUT ANY ROOM NAMES IN HERE YOU WANT
+			{
+				result = false;
+			}
 
-            return result;
-        }
+			return result;
+		}
 
 
-        public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
+		public void RainWorldGame_Update(On.RainWorldGame.orig_Update orig, RainWorldGame self)
 		{
 			orig(self);
 			if (self.processActive && !self.GamePaused && self.cameras[0].room != null)
@@ -93,10 +95,7 @@ namespace Stormcat
 			}
 		}
 
-        
-
-
-        private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
+		private void RainCycle_ctor(On.RainCycle.orig_ctor orig, RainCycle self, World world, float minutes)
 		{
 			if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
 			{
@@ -109,6 +108,103 @@ namespace Stormcat
 				minutes = Random.value < 0.5f ? Mathf.Lerp(min1, max1, Random.value) : Mathf.Lerp(min2, max2, Random.value);
 			}
 			orig(self, world, minutes);
+		}
+
+		private void PlayerGraphics_AddToContainer(On.PlayerGraphics.orig_AddToContainer orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, FContainer newContatiner)
+		{
+			orig(self, sLeaser, rCam, newContatiner);
+
+			var data = Data(self.player);
+
+			if (self.player.slugcatStats.name != Stormchaser)
+				return;
+
+			//var fg = rCam.ReturnFContainer("Foreground");
+			var mg = rCam.ReturnFContainer("Midground");
+
+			for (int i = 0; i < 2; i++)
+			{
+				//fg.RemoveChild(sLeaser.sprites[data.armFlapMeshIndices[i]]);
+				sLeaser.sprites[data.armFlapMeshIndices[i]].RemoveFromContainer();
+				mg.AddChild(sLeaser.sprites[data.armFlapMeshIndices[i]]);
+			}
+		}
+
+		private void PlayerGraphics_InitiateSprites(On.PlayerGraphics.orig_InitiateSprites orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam)
+		{
+			var data = Data(self.player);
+
+			data.armFlapMeshIndices = new int[2];
+
+			orig(self, sLeaser, rCam);
+
+			if (self.player.slugcatStats.name != Stormchaser)
+				return;
+
+			int oldSLeaserLength = sLeaser.sprites.Length;
+
+			Array.Resize(ref sLeaser.sprites, oldSLeaserLength + 2);
+			sLeaser.sprites[oldSLeaserLength] = TriangleMesh.MakeLongMesh(2, false, false);
+			sLeaser.sprites[oldSLeaserLength + 1] = TriangleMesh.MakeLongMesh(2, false, false);
+
+			data.armFlapMeshIndices[0] = oldSLeaserLength;
+			data.armFlapMeshIndices[1] = oldSLeaserLength + 1;
+
+			self.AddToContainer(sLeaser, rCam, null);
+		}
+
+		private void PlayerGraphics_DrawSprites(On.PlayerGraphics.orig_DrawSprites orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, float timeStacker, Vector2 camPos)
+		{
+			orig(self, sLeaser, rCam, timeStacker, camPos);
+
+            if (self.player.slugcatStats.name != Stormchaser)
+				return;
+
+            var data = Data(self.player);
+
+			TriangleMesh[] flapMeshes = { (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[0]], (TriangleMesh)sLeaser.sprites[data.armFlapMeshIndices[1]] };
+
+			Vector2 upperFlapAnchorPos = sLeaser.sprites[0].GetPosition();
+
+			for (int i = 0; i < 2; i++)
+			{
+				//REPLACE ARM SPRITES WITH THICKER CUSTOM SPRITES
+				string elementName = sLeaser.sprites[5 + i].element.name.Replace("Player", "Stormy");
+                sLeaser.sprites[5 + i].element = Futile.atlasManager.GetElementWithName(elementName);
+
+                int armFrameNum = int.Parse(sLeaser.sprites[5 + i].element.name.Substring(9)); // this is so funny
+
+				//sLeaser.sprites[5 + i].element = Futile.atlasManager.GetElementWithName($"StormyArm{armFrameNum}.png");
+
+				Futile.atlasManager.LogAllElementNames();
+
+				Vector2 handFlapAnchorPos = sLeaser.sprites[5 + i].GetPosition();
+
+				Vector2 bodyOrientation = Custom.DirVec(self.player.bodyChunks[1].pos, self.player.bodyChunks[0].pos);
+				float upness = Math.Max(Vector2.Dot(bodyOrientation, new Vector2(0, 1)), 0f);
+
+				Vector2 lowerFlapAnchorPos = Vector2.Lerp(sLeaser.sprites[4].GetPosition(), sLeaser.sprites[1].GetPosition(), Mathf.Lerp(0.1f, 0.4f, upness));
+				lowerFlapAnchorPos += Custom.PerpendicularVector(bodyOrientation) * Mathf.Lerp(0, 4, upness) * (i == 0 ? 1 : -1) - (bodyOrientation * Mathf.Lerp(10, 0, upness));
+
+				float armStraightness = ((float)armFrameNum - 1) / 12;
+
+				Vector2 innerElbowFlapAnchorPos = Vector2.Lerp(upperFlapAnchorPos, handFlapAnchorPos, 0.75f) + Custom.RotateAroundOrigo(Custom.DirVec(upperFlapAnchorPos, handFlapAnchorPos), -90 * (i == 0 ? 1 : -1)) * 5f * (1f - armStraightness);
+
+				Vector2 flapFloppyBezierControl = innerElbowFlapAnchorPos - bodyOrientation * 12f * (0.9f + 0.3f * armStraightness);
+
+				flapMeshes[i].vertices[0] = upperFlapAnchorPos;
+				flapMeshes[i].vertices[1] = lowerFlapAnchorPos;
+				flapMeshes[i].vertices[2] = Vector2.Lerp(upperFlapAnchorPos, innerElbowFlapAnchorPos, 0.5f);
+				flapMeshes[i].vertices[3] = Custom.Bezier(lowerFlapAnchorPos, flapFloppyBezierControl, handFlapAnchorPos, flapFloppyBezierControl, 0.33f);
+				flapMeshes[i].vertices[4] = innerElbowFlapAnchorPos;
+				flapMeshes[i].vertices[5] = Custom.Bezier(lowerFlapAnchorPos, flapFloppyBezierControl, handFlapAnchorPos, flapFloppyBezierControl, 0.66f);
+				flapMeshes[i].vertices[6] = handFlapAnchorPos;
+				flapMeshes[i].vertices[7] = handFlapAnchorPos;
+
+				//Debug.Log(armStraightness);
+
+				flapMeshes[i].isVisible = sLeaser.sprites[5 + i].isVisible;
+			}
 		}
 
 		private void PlayerGraphics_Update(On.PlayerGraphics.orig_Update orig, PlayerGraphics self)
@@ -213,15 +309,19 @@ namespace Stormcat
 			if (data.holdingGlide && data.canGlide && data.playerGliding && self.mainBodyChunk.vel.y < 0f && !data.touchingTerrain)
 			{
 				//Apply glide physics changes
-					self.slugOnBack.interactionLocked = true;
+				if (self.slugOnBack != null)
+				{
+                    self.slugOnBack.interactionLocked = true;
 
-					if (self.slugOnBack != null && self.slugOnBack.slugcat != null && self.slugOnBack.HasASlug)
-					{
-						foreach (BodyChunk chunk in self.slugOnBack.slugcat.bodyChunks)
-						{
-						 chunk.vel.y = Custom.LerpAndTick(chunk.vel.y, -0.5f, 0.2f, 0.5f);
-						}
-					}
+                    if (self.slugOnBack.slugcat != null && self.slugOnBack.HasASlug)
+                    {
+                        foreach (BodyChunk chunk in self.slugOnBack.slugcat.bodyChunks)
+                        {
+                            chunk.vel.y = Custom.LerpAndTick(chunk.vel.y, -0.5f, 0.2f, 0.5f);
+                        }
+                    }
+                }
+				
 				self.animation = Player.AnimationIndex.RocketJump;
 				foreach (BodyChunk chunk in self.bodyChunks)
 				{
@@ -235,7 +335,8 @@ namespace Stormcat
 							data.zoomSpeed = 0;
 							chunk.vel.x = 0;
 							data.zoomDirection = self.flipDirection;
-						} else
+						}
+						else
 						//Increase zoomies but cap it at 50
 						{
 							if (data.zoomSpeed > 50)
@@ -247,25 +348,27 @@ namespace Stormcat
 						//Activate zoomies speed increase
 						if (data.canGlide && Mathf.Abs(chunk.vel.x) < 20)
 						{
-							chunk.vel.x = Mathf.Lerp(chunk.vel.x, chunk.vel.x + (data.zoomSpeed/20 * self.flipDirection), 0.2f);
-						} else
-						{ 
-							chunk.vel.x = 20*self.flipDirection; 
+							chunk.vel.x = Mathf.Lerp(chunk.vel.x, chunk.vel.x + (data.zoomSpeed / 20 * self.flipDirection), 0.2f);
 						}
-					} else 
-					{   
+						else
+						{
+							chunk.vel.x = 20 * self.flipDirection;
+						}
+					}
+					else
+					{
 						//Slow down if not moving forwards
 						chunk.vel.x = Mathf.Lerp(chunk.vel.x, 0, 0.2f);
 						self.animation = Player.AnimationIndex.None;
 					}
-					
+
 				}
 			}
 
             //Recharge the glide when on a wall, floor, or pole.
             //OKAY BUT STOP GLIDING WHEN WE LAND
             if ((data.rechargeGlide && self.room.gravity != 0) || (self.bodyMode == Player.BodyModeIndex.Crawl || self.bodyMode == Player.BodyModeIndex.ClimbingOnBeam || self.bodyMode == Player.BodyModeIndex.Swimming))
-			{
+            {
 				self.gravity = normalGravity;
 				self.customPlayerGravity = normalGravity;
 				data.canDoubleJump = true;
@@ -278,64 +381,61 @@ namespace Stormcat
 			if (data.glideCooldown > 0)
 			{
 				data.glideCooldown--;
-			}            
+			}
 			//Cooldown for how soon you can jump after getting off the ground. Mostly used to fix 0g problems.
 			if (data.glideCooldown < 5 && data.rechargeGlide && self.bodyMode == Player.BodyModeIndex.ZeroG && self.animation == Player.AnimationIndex.ZeroGSwim)
 			{
 				data.glideCooldown = 5;
 			}
-
+			
 			//Logs
 			//Debug.Log("Glide Cooldown" + data.glideCooldown);
 			orig(self, eu);
 		}
 
+		//OUTSTRETCHED ARMS FROM NOMAD'S GLIDING (modified)
+		private bool SlugcatHand_EngageInMovement(On.SlugcatHand.orig_EngageInMovement orig, SlugcatHand self)
+		{
+			Player player = (self.owner.owner as Player);
+			var data = Data(player);
 
-        //OUTSTRETCHED ARMS FROM NOMAD'S GLIDING (modified)
-        private bool SlugcatHand_EngageInMovement(On.SlugcatHand.orig_EngageInMovement orig, SlugcatHand self)
-        {
-            Player player = (self.owner.owner as Player);
-            var data = Data(player);
+			if (data.playerGliding)
+			{
+				// Hand position calculation and assignment
+				var playerOrientation = player.bodyChunks[0].pos - player.bodyChunks[1].pos; // A line from the top, to bottom of the player
 
-            if (data.playerGliding)
-            {
-                // Hand position calculation and assignment
-                var playerOrientation = player.bodyChunks[0].pos - player.bodyChunks[1].pos; // A line from the top, to bottom of the player
+				Vector2 tposePos =
+					(player.bodyMode == Player.BodyModeIndex.Stand ? 50 : 52) * // The vector's amplitude
+					(self.limbNumber - 0.5f) * // Differentiate left and right hands
+					new Vector2(playerOrientation.y, -playerOrientation.x).normalized; // The player's orientation rotated 90 degrees
 
-                Vector2 tposePos =
-                    (player.bodyMode == Player.BodyModeIndex.Stand ? 50 : 52) * // The vector's amplitude
-                    (self.limbNumber - 0.5f) * // Differentiate left and right hands
-                    new Vector2(playerOrientation.y, -playerOrientation.x).normalized; // The player's orientation rotated 90 degrees
-
-                tposePos += (player.bodyMode == Player.BodyModeIndex.Stand ? -5f : -1f) * playerOrientation.normalized; // Move downward relative to player orientation
+				tposePos += (player.bodyMode == Player.BodyModeIndex.Stand ? -5f : -1f) * playerOrientation.normalized; // Move downward relative to player orientation
 
 				//WE CAN CLEAN THIS UP BETTER
-                self.quickness = 1f;
-                self.huntSpeed = 50f;
+				self.quickness = 1f;
+				self.huntSpeed = 50f;
 
-                //LERP BETWEEN THE TPOSE WHILE NOT MOVING FAST AND OUTSTRETCHED WHILE GLIDING FORWARD
-                /*
-                self.mode = Limb.Mode.HuntRelativePosition;
+				//LERP BETWEEN THE TPOSE WHILE NOT MOVING FAST AND OUTSTRETCHED WHILE GLIDING FORWARD
+				/*
+				self.mode = Limb.Mode.HuntRelativePosition;
 				Vector2 targetPos = new Vector2(-20 * (self.limbNumber - 0.5f), 35);
-                float lerpFactor = Mathf.InverseLerp(20f, 5f, player.bodyChunks[0].pos.y - player.bodyChunks[1].pos.y); //OK TRY USING Y HEIGHT OF BODY CHUNKS RATHER THAN SPEED. WE CAN STILL BE MOVING SPEEDY WHILE STANDING UPRIGHT.
-                targetPos = Vector2.Lerp(tposePos, targetPos, lerpFactor);
-                targetPos = tposePos;
-                self.relativeHuntPos = targetPos; 
+				float lerpFactor = Mathf.InverseLerp(20f, 5f, player.bodyChunks[0].pos.y - player.bodyChunks[1].pos.y); //OK TRY USING Y HEIGHT OF BODY CHUNKS RATHER THAN SPEED. WE CAN STILL BE MOVING SPEEDY WHILE STANDING UPRIGHT.
+				targetPos = Vector2.Lerp(tposePos, targetPos, lerpFactor);
+				targetPos = tposePos;
+				self.relativeHuntPos = targetPos; 
 				*/
 
-                //NORMAL TPOSE
-                self.mode = Limb.Mode.HuntAbsolutePosition;
-                self.absoluteHuntPos = player.bodyChunks[0].pos + tposePos;
-                return false; //don't run orig for absolutehuntpos
+				//NORMAL TPOSE
+				self.mode = Limb.Mode.HuntAbsolutePosition;
+				self.absoluteHuntPos = player.bodyChunks[0].pos + tposePos;
+				return false; //don't run orig for absolutehuntpos
 			}
 
-            return orig(self);
-        }
+			return orig(self);
+		}
 
-
-
-        //Colour changes
-        void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
+		//Colour changes
+		void PlayerGraphics_ApplyPalette(On.PlayerGraphics.orig_ApplyPalette orig, PlayerGraphics self, RoomCamera.SpriteLeaser sLeaser, RoomCamera rCam, RoomPalette palette)
 		{
 			orig(self, sLeaser, rCam, palette);
 			var data = Data(self.player);
@@ -355,7 +455,7 @@ namespace Stormcat
 			//And the tail colour
 			sLeaser.sprites[2].color = data.tailColour;
 			//Also the shortcut
-			
+
 
 			//Make the tail gradient
 			if (sLeaser.sprites[2] is TriangleMesh tailMesh)
@@ -384,12 +484,14 @@ namespace Stormcat
 				tailMesh.Refresh();
 			}
 		}
-		
+
 		// Load any resources, such as sprites or sounds
 		private void LoadResources(RainWorld rainWorld)
 		{
 			//Futile.atlasManager.LoadImage("atlases/StormAtlas"); //LoadImage NOTABLY DIFFERENT THAN LoadAtlas
 			Futile.atlasManager.LoadAtlas("atlases/StormAtlas");
+			var a = Futile.atlasManager.LoadAtlas("atlases/armstormy");
+			Debug.Log($"stormy atlas: {a}");
 		}
 	}
 }
