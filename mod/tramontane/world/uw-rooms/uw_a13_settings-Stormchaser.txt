@@ -2,7 +2,7 @@ Template: NONE
 CeilingDrips: 0
 RainIntensity: 0
 RumbleIntensity: 0.01086957
-Clouds: 0.1521739
+Clouds: 0.8043478
 Grime: 0.05434782
 Palette: 28
 Effects: DayNight-0.7391304-20-20, 
