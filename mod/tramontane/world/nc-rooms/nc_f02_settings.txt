@@ -1,4 +1,4 @@
 Effects: AboveCloudsView-1-277-127, 
 PlacedObjects: ClimbableWire><718.4383><256.1829><546~318~17.32051~-10~Black~2, ClimbableWire><5059.718><417.8816><471~-282~17.32051~-10~Black~2, 
-BackgroundOffset: 0,-100
+BackgroundOffset: 0,-225
 BackgroundType: atc_canyon

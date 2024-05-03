@@ -1,0 +1,2 @@
+Effects: ElectricDeath-0-30-30, 
+PlacedObjects: LightSource><266.4532><242.6546><0.504228~EffectColor1~37~154~50~86.60254~0~0~None~0~0, LightSource><141.9852><316.0081><0.3037547~EffectColor1~61~188~50~86.60254~0~0~None~0~0, LightSource><795.2509><290.7187><0.6518648~EffectColor1~-36~103~50~86.60254~0~0~None~0~0, 

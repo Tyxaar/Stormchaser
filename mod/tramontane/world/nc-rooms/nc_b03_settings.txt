@@ -1,2 +1,3 @@
+Template: NC_SettingsTemplate_indoorsthunder
 Clouds: 0.3586957
 Grime: 0.1086956
