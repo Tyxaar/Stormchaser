@@ -11,8 +11,18 @@ namespace Stormcat
             var data = Data(self.owner.player);
 
             self.events.Add(new SSOracleBehavior.PebblesConversation.PauseAndWaitForStillEvent(self, self.convBehav, 10));
-            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("OwO I catboy Pebbles hewwo Stormy."), 0));
-            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("Bibye!!!! Have fun out there. ^w^"), 0));
+            //self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("OwO I catboy Pebbles hewwo Stormy."), 0));
+            //self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("Bibye!!!! Have fun out there. ^w^"), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("You may have this back."), 0));
+            self.events.Add(new SSOracleBehavior.PebblesConversation.PauseAndWaitForStillEvent(self, self.convBehav, 10));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("The research data on this pearl is interesting, but of no use in my current condition.<LINE>I can see you must have come from the distant north, it is unfortunate this journey was in vain."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("..."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("My forecast nodes no longer give me accurate readings due to the damage they sustained over time,<LINE>but I am aware of the violent storms beyond these walls."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("I'm guessing you must be a refugee, then."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("There once was an ancient path to escape the world and its cycles,<LINE>but my failing systems keep me from bestowing the mark that will let you in."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("If you want to try your luck, it is West from here, past the farm arrays. You will need to go as<LINE>deep into the ground as you can, but getting through the temples will be close to impossible now."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("With that being said, I have nothing else for you.<LINE>Good luck in your travels, wayfarer, and for your sake, do not come back."), 0));
+            self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("I do not have much time left, and this facility will<LINE>only get more and more hostile to life."), 0));
 
             if (self.owner.player.slugcatStats.name != Stormchaser)
             { orig(self); return; }

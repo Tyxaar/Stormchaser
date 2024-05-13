@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using SlugBase.DataTypes;
 using RWCustom;
 using Random = UnityEngine.Random;
+using System;
 
 namespace Stormcat
 {
