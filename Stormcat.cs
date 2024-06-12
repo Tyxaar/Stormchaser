@@ -219,7 +219,7 @@ namespace Stormcat
 			{
 				data.eyeColour = new PlayerColor("Eyes").GetColor(self) ?? Color.cyan;
 				self.lightSource.color = data.eyeColour;
-				self.lightSource.alpha = 0.25f;
+				self.lightSource.alpha = 1f;
 			}
 		}
 
