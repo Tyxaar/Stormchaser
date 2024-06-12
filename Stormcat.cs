@@ -307,7 +307,7 @@ namespace Stormcat
 			}
 
 			//If statement that runs when gliding.
-			if (data.holdingGlide && data.canGlide && data.playerGliding && self.mainBodyChunk.vel.y < 0f && !data.touchingTerrain)
+			if (data.holdingGlide && data.canGlide && data.playerGliding && self.mainBodyChunk.vel.y < 0f && !data.touchingTerrain && !data.holdingBigItem)
 			{
 				//Apply glide physics changes
 				if (self.slugOnBack != null)
