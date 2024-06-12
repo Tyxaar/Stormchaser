@@ -50,7 +50,7 @@ namespace Stormcat
             get
             {
                 playerRef.TryGetTarget(out var player);
-                string[] bodyModes = { "Stand", "CorridorClimb", "WallClimb", "Swimming", "ClimbingOnBeam" };
+                string[] bodyModes = { "Stand", "Crawl", "CorridorClimb", "Swimming", "ClimbingOnBeam" };
                 for (int i = 0; i < bodyModes.Length; i++)
                 {
                     Player.BodyModeIndex bodyRef = new Player.BodyModeIndex(bodyModes[i]);
