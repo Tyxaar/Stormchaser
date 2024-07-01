@@ -43,8 +43,8 @@ namespace Stormcat
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
 			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
-			//On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
-
+            //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
+            
 			//Quest hooks
 			On.SSOracleBehavior.PebblesConversation.AddEvents += PebblesConversation_AddEvents;
 			On.SLOracleBehaviorHasMark.MoonConversation.AddEvents += MoonConversation_AddEvents;
@@ -54,9 +54,9 @@ namespace Stormcat
 			StormyPassageHooks.Apply();
 		}
 
+        
 
-
-		private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
+        private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
 		{
 			//If the ghost is the UW ghost, change the ID to the CC echo
 			//Since this method is only responsible for deciding whether an echo should spawn or not, changing the ID to the CC echo
@@ -486,13 +486,18 @@ namespace Stormcat
 			}
 		}
 
-		// Load any resources, such as sprites or sounds
-		private void LoadResources(RainWorld rainWorld)
+        // Load any resources, such as sprites or sounds
+        public void LoadResources(RainWorld rainWorld)
 		{
 			//Futile.atlasManager.LoadImage("atlases/StormAtlas"); //LoadImage NOTABLY DIFFERENT THAN LoadAtlas
 			Futile.atlasManager.LoadAtlas("atlases/StormAtlas");
 			var a = Futile.atlasManager.LoadAtlas("atlases/armstormy");
 			Debug.Log($"stormy atlas: {a}");
+
+            SlugBase.Assets.CustomDreams.SetDreamScene(Dreams.Dream_Stormchaser_Alone, Scenes.Dream_Stormchaser_Alone);
+            SlugBase.Assets.CustomDreams.SetDreamScene(Dreams.Dream_Stormchaser_Beacon, Scenes.Dream_Stormchaser_Beacon);
+            SlugBase.Assets.CustomDreams.SetDreamScene(Dreams.Dream_Stormchaser_Thief, Scenes.Dream_Stormchaser_Thief);
+            SlugBase.Assets.CustomDreams.SetDreamScene(Dreams.Dream_Stormchaser_Wayfarers, Scenes.Dream_Stormchaser_Wayfarers);
 		}
 	}
 }

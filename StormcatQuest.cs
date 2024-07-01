@@ -10,9 +10,13 @@ namespace Stormcat
         {
             var data = Data(self.owner.player);
 
+            if (self.owner.player.slugcatStats.name != Stormchaser)
+            { orig(self); return; }
+
             self.events.Add(new SSOracleBehavior.PebblesConversation.PauseAndWaitForStillEvent(self, self.convBehav, 10));
             //self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("OwO I catboy Pebbles hewwo Stormy."), 0));
             //self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("Bibye!!!! Have fun out there. ^w^"), 0));
+
             self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("You may have this back."), 0));
             self.events.Add(new SSOracleBehavior.PebblesConversation.PauseAndWaitForStillEvent(self, self.convBehav, 10));
             self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("The research data on this pearl is interesting, but of no use in my current condition.<LINE>I can see you must have come from the distant north, it is unfortunate this journey was in vain."), 0));
@@ -24,8 +28,6 @@ namespace Stormcat
             self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("With that being said, I have nothing else for you.<LINE>Good luck in your travels, wayfarer, and for your sake, do not come back."), 0));
             self.events.Add(new Conversation.TextEvent(self, 0, self.Translate("I do not have much time left, and this facility will<LINE>only get more and more hostile to life."), 0));
 
-            if (self.owner.player.slugcatStats.name != Stormchaser)
-            { orig(self); return; }
         }
 
 

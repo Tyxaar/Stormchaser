@@ -94,3 +94,19 @@ internal static class StormcatValues
         };
     }
 }
+
+public static class Scenes
+{
+    public static Menu.MenuScene.SceneID Dream_Stormchaser_Alone = new(nameof(Dream_Stormchaser_Alone), false);
+    public static Menu.MenuScene.SceneID Dream_Stormchaser_Beacon = new(nameof(Dream_Stormchaser_Beacon), false);
+    public static Menu.MenuScene.SceneID Dream_Stormchaser_Thief = new(nameof(Dream_Stormchaser_Thief), false);
+    public static Menu.MenuScene.SceneID Dream_Stormchaser_Wayfarers = new(nameof(Dream_Stormchaser_Wayfarers), false);
+}
+
+public static class Dreams
+{
+    public static DreamsState.DreamID Dream_Stormchaser_Alone = new(nameof(Dream_Stormchaser_Alone), true);
+    public static DreamsState.DreamID Dream_Stormchaser_Beacon = new(nameof(Dream_Stormchaser_Beacon), true);
+    public static DreamsState.DreamID Dream_Stormchaser_Thief = new(nameof(Dream_Stormchaser_Thief), true);
+    public static DreamsState.DreamID Dream_Stormchaser_Wayfarers = new(nameof(Dream_Stormchaser_Wayfarers), true);
+}

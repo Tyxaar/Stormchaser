@@ -2,6 +2,7 @@ using RWCustom;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using SlugBase.SaveData;
 
 
 namespace Stormcat;
@@ -26,6 +27,16 @@ public static class StormyPassageHooks
 		On.Menu.EndgameMeter.NotchMeter.ctor += NotchMeter_ctor;
         On.Player.SlugcatGrab += Player_SlugcatGrab;
         On.GameSession.ctor += GameSession_ctor;
+
+        On.DreamsState.StaticEndOfCycleProgress += DreamsState_StaticEndOfCycleProgress;
+    }
+
+    //PREVENT VANILLA DREAMS FROM SHOWING UP
+    private static void DreamsState_StaticEndOfCycleProgress(On.DreamsState.orig_StaticEndOfCycleProgress orig, SaveState saveState, string currentRegion, string denPosition, ref int cyclesSinceLastDream, ref int cyclesSinceLastFamilyDream, ref int cyclesSinceLastGuideDream, ref int inGWOrSHCounter, ref DreamsState.DreamID upcomingDream, ref DreamsState.DreamID eventDream, ref bool everSleptInSB, ref bool everSleptInSB_S01, ref bool guideHasShownHimselfToPlayer, ref int guideThread, ref bool guideHasShownMoonThisRound, ref int familyThread)
+    {
+        if (saveState.saveStateNumber == Stormcat.Stormchaser && (eventDream == null || !eventDream.value.Contains("Stormchaser")))
+            return;
+        orig(saveState, currentRegion, denPosition, ref cyclesSinceLastDream, ref cyclesSinceLastFamilyDream, ref cyclesSinceLastGuideDream, ref inGWOrSHCounter, ref upcomingDream, ref eventDream, ref everSleptInSB, ref everSleptInSB_S01, ref guideHasShownHimselfToPlayer, ref guideThread, ref guideHasShownMoonThisRound, ref familyThread);
     }
 
 
@@ -157,13 +168,36 @@ public static class StormyPassageHooks
 
             if (pearlName == "Stormchaser_UW" || pearlName == "Stormchaser_SL" || pearlName == "Stormchaser_HI" || pearlName == "Stormchaser_SI")
 			{
-                Debug.Log("THAT'S THE ONE!!!");
 				if (!(pearl.abstractPhysicalObject as AbstractConsumable).isConsumed) //!pearl.uniquePearlCountedAsPickedUp ||
                 {
                     pearl.uniquePearlCountedAsPickedUp = true;
 					stormyPearlsPicked.Add(pearl.AbstractPearl.dataPearlType);
                     pearl.room.PlaySound(SoundID.SS_AI_Give_The_Mark_Boom, 0f, 0.45f, 1f);
                     //this.room.game.GetStorySession.playerSessionRecords[(this.grabbedBy[0].grabber as Player).playerState.playerNumber].pearlsFound.Add(this.AbstractPearl.dataPearlType);
+
+                    //QUEUE THE NEXT DREAM AND SAVE OUR CURRENT DREAM NUMBER
+                    if (self.room.game.session is StoryGameSession sesh)
+                    {
+                        int currentDream = 0;
+                        var data = sesh.saveState.miscWorldSaveData.GetSlugBaseData();
+                        if (data.TryGet<int>("SSpearlsFound", out int dreamCount))
+                        {
+                            currentDream = dreamCount;
+                        }
+                        currentDream += 1;
+                        //Debug.Log("CURRENT DREAM: " + currentDream);
+                        data.Set<int>("SSpearlsFound", currentDream);
+
+                        if (currentDream == 1)
+                            SlugBase.Assets.CustomDreams.QueueDream(sesh, Dreams.Dream_Stormchaser_Wayfarers);
+                        else if (currentDream == 2)
+                            SlugBase.Assets.CustomDreams.QueueDream(sesh, Dreams.Dream_Stormchaser_Thief);
+                        else if (currentDream == 3)
+                            SlugBase.Assets.CustomDreams.QueueDream(sesh, Dreams.Dream_Stormchaser_Alone);
+                        else if (currentDream == 4)
+                            SlugBase.Assets.CustomDreams.QueueDream(sesh, Dreams.Dream_Stormchaser_Beacon);
+                        //This should automatically reset if we die or don't complete the cycle so we don't need to worry
+                    }
                 }
             }
 		}
@@ -177,86 +211,10 @@ public static class StormyPassageHooks
 			return orig.Invoke(ID);
 	}
 
-
-	private static FAtlasElement FAtlasManager_GetElementWithName(On.FAtlasManager.orig_GetElementWithName orig, FAtlasManager self, string elementName)
-    {
-		if (elementName == "StormyA")
-			return orig.Invoke(self, "foodSymbol"); //HunterA //smallKarma3
-		else if (elementName == "StormyB")
-			return orig.Invoke(self, "foodSymbol"); //HunterB
-		else
-			return orig.Invoke(self, elementName);
-	}
-
-    
-
-    private static void FSprite_ctor_string_bool(On.FSprite.orig_ctor_string_bool orig, FSprite self, string elementName, bool quadType)
-    {
-		if (elementName == "StormyA")
-			orig.Invoke(self, "foodSymbol", quadType); //HunterA
-		else if (elementName == "StormyB")
-			orig.Invoke(self, "foodSymbol", quadType); //HunterB
-		else
-			orig.Invoke(self, elementName, quadType);
-	}
-	
-	
-	
 	
 	public static void BP_CycleCompleted(On.WinState.orig_CycleCompleted orig, WinState self, RainWorldGame game)
 	{
-
-
-
-        /*
-        // ON CYCLE COMPLETED
-        // WinState.IntegerTracker integerTracker = self.GetTracker(WinState.EndgameID.Survivor, true) as WinState.IntegerTracker;
-        WinState.IntegerTracker integerTracker5 = self.GetTracker(EnumExt_MyMod.Storm, true) as WinState.IntegerTracker;
-		if (integerTracker5 != null && !BellyPlus.VisualsOnly())// && integerTracker.GoalAlreadyFullfilled)
-		{
-			int gluttonProgress = BellyPlus.bonusFood;
-			if (gluttonProgress > 4)
-				gluttonProgress = 4 + ((gluttonProgress - 4) / 2);
-
-			if (BPOptions.debugLogs.Value)
-				Debug.Log("GLUTTON PROGRESS? " + gluttonProgress + "FILLED? " + integerTracker5.GoalAlreadyFullfilled);
-
-			if (gluttonProgress > 0)
-			{
-				integerTracker5.SetProgress(integerTracker5.progress + gluttonProgress);
-			}
-			else if (integerTracker5 != null && !integerTracker5.GoalAlreadyFullfilled)
-			{
-				integerTracker5.SetProgress(integerTracker5.progress - Mathf.Max(2 - Mathf.CeilToInt(BPOptions.bpDifficulty.Value / 2), 1) );
-			}
-		}
-		*/
-
-
-        //PEARL CHECK
-        /*
-		List<DataPearl.AbstractDataPearl.DataPearlType> list = new List<DataPearl.AbstractDataPearl.DataPearlType>();
-		for (int i = 0; i < game.GetStorySession.playerSessionRecords.Length; i++)
-		{
-			if (game.GetStorySession.playerSessionRecords[i] != null)
-			{
-               
-                PlayerSessionRecord playerSessionRecord = game.GetStorySession.playerSessionRecords[i];
-                Debug.Log("CHECKING FOUND PEARLS " + playerSessionRecord.pearlsFound.Count);
-                for (int l = 0; l < playerSessionRecord.pearlsFound.Count; l++)
-				{
-					if (!list.Contains(playerSessionRecord.pearlsFound[l]))
-					{
-						list.Add(playerSessionRecord.pearlsFound[l]);
-						Debug.Log("ADDING FOUND PEARL");
-					}
-				}
-			}
-		}
-		*/
-
         List<DataPearl.AbstractDataPearl.DataPearlType> list = stormyPearlsPicked;
-
 
         orig.Invoke(self, game);
 
