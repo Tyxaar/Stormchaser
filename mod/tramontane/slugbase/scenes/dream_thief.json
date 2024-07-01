@@ -1,0 +1,14 @@
+{
+  "id": "Dream_Stormchaser_Thief",
+  "scene_folder": "slugbase/scenes/dream - thief",
+  "images": [
+    {"name": "dream - thief - flat", "pos": [0, 0], "depth": -1.0, "flatmode": true},
+	
+    {"name": "thief - 3", "pos": [450, 132], "depth": 3.5, "shader": "Basic"},
+    {"name": "thief - 2", "pos": [490, 176], "depth": 3.0, "shader": "Basic"},
+    {"name": "thief - 1", "pos": [490, 133], "depth": 2.5, "shader": "Basic"}
+  ],
+  
+  "idle_depths": [3.0],
+  "select_menu_pos": [0, 0]
+}

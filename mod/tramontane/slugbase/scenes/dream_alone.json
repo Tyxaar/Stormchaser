@@ -1,0 +1,14 @@
+{
+  "id": "Dream_Stormchaser_Alone",
+  "scene_folder": "slugbase/scenes/dream - alone",
+  "images": [
+    {"name": "dream - alone - flat", "pos": [0, 0], "depth": -1.0, "flatmode": true},
+	
+    {"name": "alone - 3", "pos": [205, 39], "depth": 3.5, "shader": "Basic"},
+    {"name": "alone - 2", "pos": [406, 163], "depth": 3.0, "shader": "Basic"},
+    {"name": "alone - 1", "pos": [388, 104], "depth": 2.5, "shader": "Basic"}
+  ],
+  
+  "idle_depths": [3.0],
+  "select_menu_pos": [0, 0]
+}

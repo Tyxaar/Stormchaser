@@ -1,0 +1,14 @@
+{
+  "id": "Dream_Stormchaser_Beacon",
+  "scene_folder": "slugbase/scenes/dream - beacon",
+  "images": [
+    {"name": "dream - beacon - flat", "pos": [0, 0], "depth": -1.0, "flatmode": true},
+
+    {"name": "beacon - 3", "pos": [0, 0], "depth": 3.5, "shader": "Basic"},
+    {"name": "beacon - 2", "pos": [100, 267], "depth": 3.0, "shader": "Basic"},
+    {"name": "beacon - 1", "pos": [160, 183], "depth": 2.5, "shader": "Basic"}
+  ],
+  
+  "idle_depths": [3.0],
+  "select_menu_pos": [0, 0]
+}

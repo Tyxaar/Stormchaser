@@ -1,0 +1,14 @@
+{
+  "id": "Dream_Stormchaser_Wayfarers",
+  "scene_folder": "slugbase/scenes/dream - wayfarers",
+  "images": [
+    {"name": "dream - wayfarers - flat", "pos": [0, 0], "depth": -1.0, "flatmode": true},
+	
+    {"name": "wayfarers - 3", "pos": [202, 73], "depth": 3.5, "shader": "Basic"},
+    {"name": "wayfarers - 2", "pos": [346, 145], "depth": 3.0, "shader": "Basic"},
+    {"name": "wayfarers - 1", "pos": [380, 126], "depth": 2.5, "shader": "Basic"}
+  ],
+  
+  "idle_depths": [3.0],
+  "select_menu_pos": [0, 0]
+}
