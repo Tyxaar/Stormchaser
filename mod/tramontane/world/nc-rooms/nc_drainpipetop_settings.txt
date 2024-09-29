@@ -1,8 +1,7 @@
 Template: NC_SettingsTemplate_wallinside
-Clouds: 0.7680027
-Grime: 0.05360081
+Clouds: 1
 Palette: 565
-PlacedObjects: LightFixture><1825.457><179.7491><RedLight~17.32051~-10~13, LightFixture><1209.512><519.8259><RedLight~17.32051~-10~51, LightFixture><958.1277><249.873><RedLight~17.32051~-10~80, LightFixture><159.347><170.836><RedLight~17.32051~-10~23, 
+PlacedObjects: LightFixture><1783.481><199.6699><RedLight~17.32051~-10~13, LightFixture><1209.512><519.8259><RedLight~17.32051~-10~51, LightFixture><1037.811><232.798><RedLight~17.32051~-10~80, LightFixture><187.8053><145.9349><RedLight~17.32051~-10~23, LightSource><1779.195><389.6466><0.07974243~Environment~-219.1292~55.88953~-383.9895~-10.86731~1~1~None~0~0, LightSource><1442.867><393.9119><0.07974409~Environment~7.82605~227.351~50~86.60254~1~1~None~0~0, LightSource><1598.102><396.6287><0.07201087~Environment~2.845825~228.0625~486.124~193.3213~1~1~None~0~0, 
 AmbientSounds: OMNI><AM_IND-SuperStructure.ogg><745.3676><488.7601><0.1520041><1, SPOT><SO_WAT-OpenFlow.ogg><705.9197><567.1042><0.2525363><0.5824049><465.9238><221.272><-55.27618><-65.94804><0><0.4015961, SPOT><SO_IND-Boiler.ogg><862.8372><551.3322><0.3530678><1><461.3403><190.5592><-35.35534><-35.35534><0><0.2701316, SPOT><AM_ENV-WallHum.ogg><443.3141><281.8881><0.3066685><1><1211.666><603.4038><-76.6199><-65.948><0><0.8037255, 
 Triggers: Spot<tA>event<tB>MusicEvent<eA>songName<eB>nc - forlorn structure<eA>vol<eB>0.3543476<eA>prio<eB>0.5<eA>mxThrt<eB>1<eA>loop<eB>0<eA>droneTol<eB>0<eA>rooms<eB>-1<eA>rest<eB>5<eA>fadeIn<eB>0<eA>oneSongPerCycle<eB>0<eA>stopAtDeath<eB>1<eA>stopAtGate<eB>0<tA>multiUse<tB>0<tA>toCycle<tB>-1<tA>fromCycle<tB>0<tA>delay<tB>0<tA>panPos<tB>539.1794<tB>430.0884<tA>fireChance<tB>1<tA>entrance<tB>1<tA>karma<tB>0<tA>slugcats<tB><tA>pos<tB>1902.179<tB>265.0884<tA>handlePos<tB>-135.3553<tB>-40.35535, 
-FadePalette: 566, 0.479461, 0.3943951
+FadePalette: 566, 0.5799932, 0.4949273

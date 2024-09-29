@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Flood
+EffectColorB: 8
+PlacedObjects: LightSource><264.9453><445.7024><0.554718~EffectColor1~-159~99~50~86.60254~0~0~None~0~0, LightSource><601.3881><224.6402><0.4021762~EffectColor1~-512~411~50~86.60254~0~0~None~0~0, LightSource><374.9747><272.1981><0.3029573~EffectColor1~-436~204~50~86.60254~0~0~None~0~0, LightSource><324.5187><44.81453><0.1573918~EffectColor1~-83~320~50~86.60254~0~0~None~0~0, InsectGroup><519.722><276.4481><-185~18~0~0~WaterGlowworm~0.8586956, InsectGroup><379.899><447.8666><-165~0~0~0~TinyDragonFly~0.6086956, 

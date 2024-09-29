@@ -1,3 +1,4 @@
 Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Rain
 PlacedObjects: CustomDecal><216.9239><207.8901><-65~228~359~301~404~61~614.9895~159.9808~0.3043492~1~0~bluntscribble~0.7064116~0.303289~0.7064116~0.303289~0.7064116~0.303289~0.7064116~0.303289, LanternOnStick><283.1508><346.6313><-46~-139, LanternOnStick><412.3076><432.8048><52~-171, LanternOnStick><532.9465><366.1927><-10~-96, 
 FadePalette: 332, 0.3043478

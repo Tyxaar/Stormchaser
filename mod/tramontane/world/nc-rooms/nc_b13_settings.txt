@@ -1,0 +1,1 @@
+PlacedObjects: ClimbableRope><192.5158><429.0518><0^-260, ClimbableRope><471.0565><606.217><0^-209, ClimbableRope><689.2437><547.822><0^-209, ClimbableRope><871.9916><628.0058><1^-403, ClimbableRope><1034.951><507.4536><1^-169, ClimbableWire><1633.307><430.0508><-362~-58~17.32051~-10~Black~2, 

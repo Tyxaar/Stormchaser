@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Flood
+Effects: BkgOnlyLightning-0.1521739-30-30, 
+PlacedObjects: LightSource><302.1213><437.6577><0.6086087~EffectColor1~0~100~129.9955~-14.38348~0~0~None~0~0, LightSource><189.5684><157.8271><0.7503788~EffectColor1~-106~110~-136.0472~152.7252~0~0~None~0~0, LightSource><421.9877><231.4771><0.6086087~EffectColor1~-4~68~-500.0045~219.6165~0~0~None~0~0, LightSource><304.9999><94.00017><0.2064335~EffectColor1~166~164~129.9955~-14.38348~0~0~None~0~0, InsectGroup><289.9987><190.0388><-7~60~0~0~TinyDragonFly~0.2065091, 
+AmbientSounds: OMNI><AM_RAIN-RollingThunder.ogg><521.071><465.6607><0.4565217><1, 
