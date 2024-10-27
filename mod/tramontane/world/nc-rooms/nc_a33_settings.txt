@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_eye
+Effects: Darkness-0.6521739-20-20, 
+PlacedObjects: LightBeam><154.815><378.174><48~278~776~278~727~-169~-311~-59~0.7043477~1~0.9782609~1~Fade~0.5~0, LightSource><690.613><547.165><0.05434782~Environment~-296~-84~-497~-279.3975~1~1~None~0~0, CGDrySpot><431.1064><85.63922><100~50~100^100~True~None, 
+FadePalette: 8, 0.6521739

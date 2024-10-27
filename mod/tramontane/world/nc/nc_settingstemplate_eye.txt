@@ -1,0 +1,22 @@
+DangerType: None
+CeilingDrips: 0.5
+RainIntensity: 1
+RumbleIntensity: 1
+WaveSpeed: 0.75
+WaveLength: 0.5
+WaveAmplitude: 0
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Clouds: 0.8586956
+Grime: 0
+BkgDroneVolume: 0.3
+BkgDroneNoThreatVolume: 1
+RandomItemDensity: 0.5
+RandomItemSpearChance: 0.2
+WaterReflectionAlpha: 1
+Palette: 494
+EffectColorA: 0
+EffectColorB: 2
+Effects: AboveCloudsView-1-20-20, ReflectiveWater-0.25-307-46-LerpAngle:83.69565-Alpha:255, ReplaceEffectColorB-0-522-528-Color-1-0.5108696-0.6086956, 
+AmbientSounds: OMNI><AM_ENV-NatWind.ogg><693.6902><484.8117><0.5><1, OMNI><AM_ENV-LightWind.ogg><705.4026><515.6747><0.5><1, 
+FadePalette: 2, 0

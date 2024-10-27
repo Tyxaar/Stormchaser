@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_indoorsthunder
+Effects: BkgOnlyLightning-0-30-30, Desaturation-0.7065217-297-104, 
+AmbientSounds: OMNI><AM_RAIN-RollingThunder.ogg><642.1038><516.1365><0.05434782><1, OMNI><AM_RAIN-QuietThunder.ogg><573.0506><444.5153><0><1, 
+FadePalette: 10, 0.7065217

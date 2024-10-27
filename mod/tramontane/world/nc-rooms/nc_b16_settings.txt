@@ -1,0 +1,2 @@
+Template: NC_SettingsTemplate_indoorsthunder
+PlacedObjects: LightSource><567.5463><938.2612><0.1069952~Environment~-42~207~50~86.60254~1~1~None~0~0, LightSource><460.0005><1251.48><0.1069952~Environment~-42~207~50~86.60254~1~1~None~0~0, 

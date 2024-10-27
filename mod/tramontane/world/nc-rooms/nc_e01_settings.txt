@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_eye
+PlacedObjects: ClimbableRope><4432.608><391.9185><0^-138, ClimbableRope><4351><392><0^-91, 
+BackgroundOffset: 0,650
+BackgroundType: AtC_Canyon

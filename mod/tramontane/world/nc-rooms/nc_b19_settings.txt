@@ -1,0 +1,5 @@
+Template: NC_SettingsTemplate_eye
+Clouds: 0.9021739
+Effects: Darkness-0.25-20-20, 
+PlacedObjects: LightBeam><263.0719><977.6864><237~437~489~321~377~-311~-213~165~0.4543477~0~0~0~Fade~0.5543478~0, LightSource><578.0573><1199.946><0.1521739~Environment~-230~-53~-246~-259.3975~0~1~None~0~0, LightSource><486.7573><442.3001><0.1521739~Environment~-134~118~50~86.60254~0~1~None~0~0, LightSource><482><833><0.1521739~Environment~-134~118~50~86.60254~0~1~None~0~0, 
+FadePalette: 8, 0.3586957, 0.5543478

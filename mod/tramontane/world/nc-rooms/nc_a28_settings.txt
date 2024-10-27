@@ -1,0 +1,6 @@
+Template: NC_SettingsTemplate_indoorsthunder
+DangerType: Flood
+Effects: BkgOnlyLightning-0.05434782-30-30, Desaturation-0.1086956-317-117, 
+PlacedObjects: LightSource><576.5822><133.8219><0.4021739~EffectColor1~18~129~50~86.60254~0~0~None~0~0, 
+AmbientSounds: OMNI><AM_RAIN-RollingThunder.ogg><561.071><504.6607><0.3043478><1, 
+FadePalette: 10, 0.1086956

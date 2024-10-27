@@ -1,0 +1,2 @@
+Template: NC_SettingsTemplate_indoorsthunder
+PlacedObjects: LightSource><866.6388><384.3519><0.4021898~EffectColor1~-6~125~50~86.60254~0~0~None~0~0, LightSource><456.9968><380.1803><0.4021898~EffectColor1~35~105~50~86.60254~0~0~None~0~0, 
