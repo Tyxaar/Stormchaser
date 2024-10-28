@@ -199,8 +199,18 @@ public static class StormyPassageHooks
                         //This should automatically reset if we die or don't complete the cycle so we don't need to worry
                     }
                 }
+
+                //AND THEN DESTROY THE PEARL
+                self.ReleaseGrasp(graspUsed);
+                self.room.PlaySound(SoundID.Snail_Pop, self.mainBodyChunk);
+                for (int i = 0; i < 3; i++)
+                {
+                    self.room.AddObject(new WaterDrip(obj.bodyChunks[0].pos, Custom.DegToVec(Random.value * 360f) * Mathf.Lerp(4f, 21f, Random.value), false));
+                }
+                self.room.AddObject(new ShockWave(obj.bodyChunks[0].pos, 50f, 0.07f, 6, false));
+                obj.Destroy();
             }
-		}
+        }
     }
 
     private static string WinState_PassageDisplayName(On.WinState.orig_PassageDisplayName orig, WinState.EndgameID ID)

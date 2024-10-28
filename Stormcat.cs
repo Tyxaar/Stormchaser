@@ -100,14 +100,18 @@ namespace Stormcat
 		{
 			if (world.game.session is StoryGameSession session && session.saveStateNumber == Stormchaser)
 			{
-				const float min1 = 2.5f;
+				/*const float min1 = 2.5f;
 				const float max1 = 4f;
-
 				const float min2 = 8.5f;
 				const float max2 = 10f;
-
 				minutes = Random.value < 0.5f ? Mathf.Lerp(min1, max1, Random.value) : Mathf.Lerp(min2, max2, Random.value);
-			}
+				*/
+				//NEW METHOD THAT USES PLAYER PROGRESS TO MODIFY CYCLE TIMER
+				float playerSkill = session.saveState.deathPersistentSaveData.howWellIsPlayerDoing; 
+				//A NUMBER BETWEEN -1 AND 1. CHANGES BY 0.1 EACH TIME A PLAYER HIBERNATES OR DIES
+				Debug.Log("PLAYERSKILL " + playerSkill);
+				minutes *= 1 - (playerSkill * 0.5f) ; //Custom.LerpMap(playerSkill, 0.5f, 1f, -1f, -1f, 1f); 
+            }
 			orig(self, world, minutes);
 		}
 
