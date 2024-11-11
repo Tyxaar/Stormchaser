@@ -1,0 +1,4 @@
+Template: NC_SettingsTemplate_eye
+Clouds: 0.9021739
+BackgroundOffset: 0,550
+BackgroundType: AtC_Canyon

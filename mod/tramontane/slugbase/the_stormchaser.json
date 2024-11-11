@@ -5,27 +5,15 @@
 	"features": {
 		"color": "00FF00",
 		"custom_colors": [
-			{
-				"name": "Body",
-				"story": "070D0D",
-				"arena": [ "FFFFFF", "FFCA4A", "FF7575", "070D0D" ]
-			},
-			{
-				"name": "Eyes",
-				"story": "00FF00",
-				"arena": [ "FF80A6", "FFFFFF", "5AFFBE", "00FF00" ]
-			},
-			{
-				"name": "Tail",
-				"story": "00FF00",
-				"arena": [ "FF80A6", "FFFFFF", "5AFFBE", "00FF00" ]
-			}
+			{"name": "Body", "story": "070D0D", "arena": ["FFFFFF", "FFCA4A", "FF7575", "070D0D"]},
+			{"name": "Eyes", "story": "00FF00", "arena": ["FF80A6", "FFFFFF", "5AFFBE", "00FF00"]},
+			{"name": "Tail", "story": "00FF00", "arena": ["FF80A6", "FFFFFF", "5AFFBE", "00FF00"]}
 		],
 
 		"weight": 0.9,
 		"climb_speed": 1.5,
 		"walk_speed": 1.5,
-		"throw_skill": [ 1 ],
+		"throw_skill": [1],
 
 		"diet": {
 			"base": "White",
@@ -50,14 +38,13 @@
 
 		"the_mark": true,
 		"the_glow": true,
+		"has_dreams": true,
 		"start_room": "SS_AI",
-
+		
 		"select_menu_scene": "Slugcat_Stormchaser",
 		"select_menu_scene_ascended": "Ghost_Stormchaser",
 
 		"expedition_enabled": true,
-		"expedition_description": "An agile explorer gliding southwards once again.<LINE> Can you withstand weather growing out of control ?",
-
-		"has_dreams": true
+		"expedition_description": "An agile explorer gliding southwards once again.<LINE> Can you withstand weather growing out of control ?"
 	}
 }

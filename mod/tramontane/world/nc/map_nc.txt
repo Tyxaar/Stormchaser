@@ -1,117 +1,120 @@
-GATE_SI_NC: -3768><1411.5><-2560><904><1><
-NC_A01: -2922><1411.5><-1996><904><1><
-NC_A02: -2739><1411.5><-1874><904><1><
-NC_C01: -2406><1411.5><-1756><904><1><
-NC_B01: -1986><1411.5><-1424><904><1><
-NC_A03: -1740><1411.5><-1208><904><1><
-NC_A04: -1572><1411.5><-1096><904><1><
-NC_A05: -1401><1411.5><-982><904><1><
-NC_B02: -1152><1411.5><-868><904><1><
-NC_A06: -903><1411.5><-650><904><1><
-NC_A07: -723><1411.5><-530><904><1><
-NC_D01: 198><1362><32><831><1><Northern Canyon
-NC_D02: 456><1156.5><100><734><1><Northern Canyon
-NC_H01: 636><1480.5><220><910><2><Northern Canyon
-NC_F01: 1032><1786.5><588><1074><2><Northern Canyon
-NC_B03: 1155><1369.5><722><836><1><Northern Canyon
-NC_A08: 852><1207.5><520><768><1><Northern Canyon
-NC_B04: 1098><1189.5><632><756><1><Northern Canyon
-NC_A09: 1476><1186.5><936><754><1><Northern Canyon
-NC_B05: 1524><996><968><587><1><Northern Canyon
-NC_A10: 1677><895.5><1070><560><1><Northern Canyon
-NC_C03: 1824><804><1168><419><1><Northern Canyon
-NC_A11: 1923><309><1234><169><0><Northern Canyon
-NC_B06: 1179><2082><738><1311><2><Northern Canyon
-NC_SPIRETOP: 363><2253><-378><1465><2><Northern Canyon
-NC_F02: 1638><2010><784><1303><1><Northern Canyon
-NC_A12: 1386><1863><876><1205><1><Northern Canyon
-NC_S01: 1218><2122.5><764><1378><1><Northern Canyon
-NC_F03: 2070><654><1332><199><1><Northern Canyon
-NC_A13: 1683><1116><1074><707><1><Northern Canyon
-NC_A14: 75><1183.5><2><752><1><Northern Canyon
-NC_D03: -306><1141.5><-408><724><1><Northern Canyon
-NC_A15: -555><1249.5><-418><796><1><Northern Canyon
-NC_C04: -453><1330.5><-454><850><2><Northern Canyon
-NC_A16: -603><1333.5><-450><852><1><Northern Canyon
-NC_A17: 1890><477><1212><281><0><Northern Canyon
-NC_A18: 1332><1219.5><840><776><1><Northern Canyon
-NC_S05: 1731><468><1106><275><0><Northern Canyon
-NC_D04: 2145><79.5><1330><-24><1><Northern Canyon
-NC_A19: 2070><247.5><1332><128><1><Northern Canyon
-NC_A20: 2367><37.5><1530><-12><1><Northern Canyon
-NC_B07: 2589><16.5><1626><-26><1><Northern Canyon
-NC_B08: 2808><91.5><1824><-16><1><Northern Canyon
-NC_A21: 2211><247.5><1426><128><1><Northern Canyon
-NC_B09: -441><1872><-342><1171><2><Northern Canyon
-NC_B10: -213><1683><-242><1085><2><Northern Canyon
-NC_S06: -138><1572><-140><1011><2><Northern Canyon
-NC_B11: -420><1522.5><-328><938><2><Northern Canyon
-NC_A22: -513><1695><-390><1093><2><Northern Canyon
-NC_B12: 78><1656><4><1027><2><Northern Canyon
-NC_F04: 663><1551><134><997><1><Northern Canyon
-NC_A23: 1248><1551><784><997><1><Northern Canyon
-NC_B13: 1476><1381.5><884><884><1><Northern Canyon
-NC_A24: 2358><270><1524><143><1><Northern Canyon
-NC_B14: 2577><157.5><1618><68><1><Northern Canyon
-NC_A25: 2952><3><1920><-35><1><Northern Canyon
-NC_B15: 3177><33><2018><-15><1><Northern Canyon
-NC_D05: 3477><117><2218><1><1><Northern Canyon
-NC_A26: 3219><-72><2098><-85><1><Northern Canyon
-NC_S07: 3360><-102><2192><-105><1><Northern Canyon
-NC_C05: 3099><138><1914><55><1><Northern Canyon
-NC_A27: 3699><52.5><2418><-2><1><Northern Canyon
-NC_A28: 3843><96><2514><27><1><Northern Canyon
-NC_S08: 3126><244.5><2036><126><1><Northern Canyon
-NC_B16: 2373><441><1534><217><1><Northern Canyon
-NC_B17: 4023><198><2582><95><1><Northern Canyon
-NC_A29: 2370><742.5><1532><458><1><Northern Canyon
-NC_A30: 2289><609><1478><369><1><Northern Canyon
-NC_C06: 2370><994.5><1532><546><1><Northern Canyon
-NC_A31: 4248><198><2784><95><1><Northern Canyon
-NC_B18: 4470><162><2880><71><1><Northern Canyon
-NC_A32: 4692><171><3080><77><1><Northern Canyon
-NC_A33: 4833><171><3174><77><1><Northern Canyon
-NC_B19: 4977><270><3270><103><1><Northern Canyon
-NC_F05: 5295><376.5><3378><174><1><Northern Canyon
-NC_E01: 5949><324><3710><179><1><Northern Canyon
-GATE_FT_NC: -1899><1551><-1314><997><2><
-NC_FT1: -1539><1549.5><-1178><996><2><Northern Canyon
+GATE_SI_NC: -3768><1416><-2560><904><1><
+NC_A01: -2922><1416><-1996><904><1><
+NC_A02: -2739><1416><-1874><904><1><
+NC_C01: -2406><1416><-1756><904><1><
+NC_B01: -1986><1416><-1424><904><1><
+NC_A03: -1740><1416><-1208><904><1><
+NC_A04: -1572><1416><-1096><904><1><
+NC_A05: -1401><1416><-982><904><1><
+NC_B02: -1152><1416><-868><904><1><
+NC_A06: -903><1416><-650><904><1><
+NC_A07: -723><1416><-530><904><1><
+NC_D01: 198><1366.5><32><831><1><Northern Canyon
+NC_D02: 456><1161><100><734><1><Northern Canyon
+NC_H01: 636><1485><220><910><2><Northern Canyon
+NC_F01: 1032><1791><588><1074><2><Northern Canyon
+NC_B03: 1155><1374><722><836><1><Northern Canyon
+NC_A08: 852><1212><520><768><1><Northern Canyon
+NC_B04: 1098><1194><632><756><1><Northern Canyon
+NC_A09: 1476><1191><936><754><1><Northern Canyon
+NC_B05: 1524><1000.5><968><587><1><Northern Canyon
+NC_A10: 1677><900><1070><560><1><Northern Canyon
+NC_C03: 1824><808.5><1168><419><1><Northern Canyon
+NC_A11: 1923><313.5><1234><169><0><Northern Canyon
+NC_B06: 1179><2086.5><738><1311><2><Northern Canyon
+NC_SPIRETOP: 363><2257.5><-378><1465><2><Northern Canyon
+NC_F02: 1638><2014.5><784><1303><1><Northern Canyon
+NC_A12: 1386><1867.5><876><1205><1><Northern Canyon
+NC_S01: 1218><2127><764><1378><1><Northern Canyon
+NC_F03: 2070><658.5><1332><199><1><Northern Canyon
+NC_A13: 1683><1120.5><1074><707><1><Northern Canyon
+NC_A14: 75><1188><2><752><1><Northern Canyon
+NC_D03: -306><1146><-408><724><1><Northern Canyon
+NC_A15: -555><1254><-418><796><1><Northern Canyon
+NC_C04: -453><1335><-454><850><2><Northern Canyon
+NC_A16: -603><1338><-450><852><1><Northern Canyon
+NC_A17: 1890><481.5><1212><281><0><Northern Canyon
+NC_A18: 1332><1224><840><776><1><Northern Canyon
+NC_S05: 1731><472.5><1106><275><0><Northern Canyon
+NC_D04: 2145><84><1330><-24><1><Northern Canyon
+NC_A19: 2070><252><1332><128><1><Northern Canyon
+NC_A20: 2367><42><1530><-12><1><Northern Canyon
+NC_B07: 2589><21><1626><-26><1><Northern Canyon
+NC_B08: 2808><96><1824><-16><1><Northern Canyon
+NC_A21: 2211><252><1426><128><1><Northern Canyon
+NC_B09: -441><1876.5><-342><1171><2><Northern Canyon
+NC_B10: -213><1687.5><-242><1085><2><Northern Canyon
+NC_S06: -138><1576.5><-140><1011><2><Northern Canyon
+NC_B11: -420><1527><-328><938><2><Northern Canyon
+NC_A22: -513><1699.5><-390><1093><2><Northern Canyon
+NC_B12: 78><1660.5><4><1027><2><Northern Canyon
+NC_F04: 663><1555.5><134><997><1><Northern Canyon
+NC_A23: 1248><1555.5><784><997><1><Northern Canyon
+NC_B13: 1476><1386><884><884><1><Northern Canyon
+NC_A24: 2358><274.5><1524><143><1><Northern Canyon
+NC_B14: 2577><162><1618><68><1><Northern Canyon
+NC_A25: 2952><7.5><1920><-35><1><Northern Canyon
+NC_B15: 3177><37.5><2018><-15><1><Northern Canyon
+NC_D05: 3477><121.5><2218><1><1><Northern Canyon
+NC_A26: 3219><-67.5><2098><-85><1><Northern Canyon
+NC_S07: 3360><-97.5><2192><-105><1><Northern Canyon
+NC_C05: 3099><142.5><1914><55><1><Northern Canyon
+NC_A27: 3699><57><2418><-2><1><Northern Canyon
+NC_A28: 3843><100.5><2514><27><1><Northern Canyon
+NC_S08: 3126><249><2036><126><1><Northern Canyon
+NC_B16: 2373><445.5><1534><217><1><Northern Canyon
+NC_B17: 4023><202.5><2582><95><1><Northern Canyon
+NC_A29: 2370><747><1532><458><1><Northern Canyon
+NC_A30: 2289><613.5><1478><369><1><Northern Canyon
+NC_C06: 2370><999><1532><546><1><Northern Canyon
+NC_A31: 4248><202.5><2784><95><1><Northern Canyon
+NC_B18: 4470><166.5><2880><71><1><Northern Canyon
+NC_A32: 4692><175.5><3080><77><1><Northern Canyon
+NC_A33: 4833><175.5><3174><77><1><Northern Canyon
+NC_B19: 4977><274.5><3270><103><1><Northern Canyon
+NC_F05: 5295><381><3378><174><1><Northern Canyon
+NC_E01: 5931><328.5><3710><179><1><Northern Canyon
+NC_A34: 5553><214.5><0><-70><1><Northern Canyon
+NC_A35: 6387><307.5><0><-70><1><Northern Canyon
+GATE_FT_NC: -1899><1555.5><-1314><997><2><
+NC_FT1: -1539><1554><-1178><996><2><Northern Canyon
 NC_FT2: -1245><1332><-882><814><2><Northern Canyon
-NC_FT3: -855><1330.5><-670><850><2><Northern Canyon
-NC_FT4: -1080><1327.5><-768><848><2><Northern Canyon
-NC_FTS: -1242><1549.5><-876><996><2><Northern Canyon
-GATE_SL_NC: -1524><-813><-1064><-579><1><
-NC_FROMSL00: -1407><-705><-986><-507><1><
-NC_FROMSL01: -1176><-711><-890><-511><1><Facility Roots (Northern Intake)
-NC_FROMSL02: -948><-711><-680><-511><1><Facility Roots (Northern Intake)
-NC_FROMSL03: -648><-705><-584><-507><1><Facility Roots (Northern Intake)
+NC_FT3: -855><1335><-670><850><2><Northern Canyon
+NC_FT4: -1080><1332><-768><848><2><Northern Canyon
+NC_FTS: -1242><1554><-876><996><2><Northern Canyon
+GATE_SL_NC: -1524><-808.5><-1064><-579><1><
+NC_FROMSL00: -1407><-700.5><-986><-507><1><
+NC_FROMSL01: -1176><-706.5><-890><-511><1><Facility Roots (Northern Intake)
+NC_FROMSL02: -948><-706.5><-680><-511><1><Facility Roots (Northern Intake)
+NC_FROMSL03: -648><-700.5><-584><-507><1><Facility Roots (Northern Intake)
 NC_FROMSLSPLIT: -264><-714><-280><-512><1><Facility Roots (Northern Intake)
-NC_PUMP01: -51><-447><-82><-335><0><Facility Roots (Northern Intake)
-NC_PUMP02: 180><-438><16><-329><0><Facility Roots (Northern Intake)
+NC_PUMP01: -51><-442.5><-82><-335><0><Facility Roots (Northern Intake)
+NC_PUMP02: 180><-433.5><16><-329><0><Facility Roots (Northern Intake)
 NC_PUMP03: 495><-501><226><-370><0><Facility Roots (Northern Intake)
-NC_PUMP04: 507><-198><290><-209><1><Facility Roots (Northern Intake)
-NC_PUMP05: 657><-183><390><-159><1><Facility Roots (Northern Intake)
-NC_PUMP06: 723><-534><434><-433><0><Facility Roots (Northern Intake)
-NC_PUMPGAP: 900><-273><542><-219><1><Facility Roots (Northern Intake)
-NC_DRAINPIPE01: 1161><-273><718><-219><1><Facility Roots (Northern Intake)
-NC_DRAINPIPE02: 1203><-240><754><-197><0><Facility Roots (Northern Intake)
-NC_DRAINPIPE03: 1059><-258><658><-289><0><Facility Roots (Northern Intake)
+NC_PUMP04: 507><-193.5><290><-209><1><Facility Roots (Northern Intake)
+NC_PUMP05: 657><-178.5><390><-159><1><Facility Roots (Northern Intake)
+NC_PUMP06: 723><-529.5><434><-433><0><Facility Roots (Northern Intake)
+NC_PUMPGAP: 900><-268.5><542><-219><1><Facility Roots (Northern Intake)
+NC_DRAINPIPE01: 1161><-268.5><718><-219><1><Facility Roots (Northern Intake)
+NC_DRAINPIPE02: 1203><-235.5><754><-197><0><Facility Roots (Northern Intake)
+NC_DRAINPIPE03: 1059><-253.5><658><-289><0><Facility Roots (Northern Intake)
 NC_DRAINPIPE04: 1059><-567><658><-416><0><Facility Roots (Northern Intake)
-NC_DRAINPIPE05: 1044><79.5><648><-24><0><Facility Roots (Northern Intake)
-NC_DRAINPIPE06: 748.5><247.5><386><128><0><Facility Roots (Northern Intake)
-NC_GAPCLIMB01: 909><-45><558><-107><1><Facility Roots (Northern Intake)
-NC_DRAINBASE: 1059><-654><658><-513><1><Facility Roots (Northern Intake)
-NC_MAINPIPE01: 108><-705><-75><-507><1><Facility Roots (Northern Intake)
-NC_MAINPIPE02: 684><-705><254><-507><1><Facility Roots (Northern Intake)
-NC_FACILITYACCESS: 424.5><247.5><186><128><0><Facility Roots (Northern Intake)
-NC_DRAINPIPETOP: 1072.5><247.5><618><128><0><Facility Roots (Northern Intake)
-NC_INWALL01: 1188><352.5><744><198><0><Facility Roots (Northern Intake)
-NC_S02: -951><-597><-682><-435><1><Facility Roots (Northern Intake)
-NC_S03: 462><139.5><260><56><0><Facility Roots (Northern Intake)
-NC_SGAP: 810><-165><492><-147><1><Facility Roots (Northern Intake)
-NC_ONEWAYIN: 1644><33><899><-15><0><
-NC_ONEWAYOUT: 1314><88.5><828><-16><0><Facility Roots (Northern Intake)
+NC_DRAINPIPE05: 1044><84><648><-24><0><Facility Roots (Northern Intake)
+NC_DRAINPIPE06: 744><252><386><128><0><Facility Roots (Northern Intake)
+NC_GAPCLIMB01: 909><-40.5><558><-107><1><Facility Roots (Northern Intake)
+NC_DRAINBASE: 1059><-649.5><658><-513><1><Facility Roots (Northern Intake)
+NC_MAINPIPE01: 103.5><-700.5><-75><-507><1><Facility Roots (Northern Intake)
+NC_MAINPIPE02: 684><-700.5><254><-507><1><Facility Roots (Northern Intake)
+NC_FACILITYACCESS: 420><252><186><128><0><Facility Roots (Northern Intake)
+NC_DRAINPIPETOP: 1068><252><618><128><0><Facility Roots (Northern Intake)
+NC_INWALL01: 1188><357><744><198><0><Facility Roots (Northern Intake)
+NC_S02: -951><-592.5><-682><-435><1><Facility Roots (Northern Intake)
+NC_S03: 462><144><260><56><0><Facility Roots (Northern Intake)
+NC_SGAP: 810><-160.5><492><-147><1><Facility Roots (Northern Intake)
+NC_ONEWAYIN: 1639.5><37.5><899><-15><0><
+NC_ONEWAYOUT: 1314><93><828><-16><0><Facility Roots (Northern Intake)
 OffScreenDen_nc: 606><1707><340><1128><1><
+NC_S09: 6540><327><0><-70><1><Northern Canyon
 Connection: GATE_SI_NC,NC_A01,39,11,6,11,0,2
 Connection: NC_A01,NC_A02,41,11,6,11,0,2
 Connection: NC_A02,NC_C01,41,11,6,11,0,2
@@ -202,6 +205,10 @@ Connection: NC_A32,NC_A33,41,16,5,18,0,2
 Connection: NC_A33,NC_B19,44,28,15,15,0,2
 Connection: NC_B19,NC_F05,32,46,19,20,0,3
 Connection: NC_F05,NC_E01,129,54,25,21,1,2
+Connection: NC_F05,NC_A34,140,6,7,15,0,2
+Connection: NC_E01,NC_A35,226,5,10,12,0,2
+Connection: NC_E01,NC_A34,32,4,35,24,2,1
+Connection: NC_A35,NC_S09,37,12,12,6,0,2
 Connection: GATE_FT_NC,NC_FT1,36,19,8,28,1,2
 Connection: NC_FT1,NC_FT2,144,10,6,49,0,2
 Connection: NC_FT2,NC_FTS,18,67,15,13,1,3
