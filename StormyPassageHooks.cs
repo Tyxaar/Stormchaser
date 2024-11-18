@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using SlugBase.SaveData;
+using MoreSlugcats;
+using System;
 
 
 namespace Stormcat;
@@ -17,10 +19,6 @@ public static class StormyPassageHooks
         On.WinState.CreateAndAddTracker += BP_CreateAndAddTracker;
         On.WinState.PassageDisplayName += WinState_PassageDisplayName;
 
-        //On.FSprite.ctor_string_bool += FSprite_ctor_string_bool;
-        //On.FAtlasManager.GetElementWithName += FAtlasManager_GetElementWithName;
-
-		//TO COME LATER WHEN WE HAVE PASSAGE SCREEN ART
         On.Menu.MenuScene.BuildScene += BP_BuildScene;
 		On.Menu.CustomEndGameScreen.GetDataFromSleepScreen += BP_GetDataFromSleepScreen;
 
@@ -29,6 +27,7 @@ public static class StormyPassageHooks
         On.GameSession.ctor += GameSession_ctor;
 
         On.DreamsState.StaticEndOfCycleProgress += DreamsState_StaticEndOfCycleProgress;
+        On.DataPearl.Update += DataPearl_Update;
     }
 
     //PREVENT VANILLA DREAMS FROM SHOWING UP
@@ -162,11 +161,7 @@ public static class StormyPassageHooks
 
 		if (obj is DataPearl pearl)
 		{
-			
-			Debug.Log("DATA PEARL: " + pearl.AbstractPearl.ToString());
-			string pearlName = pearl.AbstractPearl.dataPearlType.ToString();
-
-            if (pearlName == "Stormchaser_UW" || pearlName == "Stormchaser_SL" || pearlName == "Stormchaser_HI" || pearlName == "Stormchaser_SI")
+			if (IsStormchaserPearl(pearl))
 			{
 				if (!(pearl.abstractPhysicalObject as AbstractConsumable).isConsumed) //!pearl.uniquePearlCountedAsPickedUp ||
                 {
@@ -205,12 +200,27 @@ public static class StormyPassageHooks
                 self.room.PlaySound(SoundID.Snail_Pop, self.mainBodyChunk);
                 for (int i = 0; i < 3; i++)
                 {
-                    self.room.AddObject(new WaterDrip(obj.bodyChunks[0].pos, Custom.DegToVec(Random.value * 360f) * Mathf.Lerp(4f, 21f, Random.value), false));
+                    self.room.AddObject(new WaterDrip(obj.bodyChunks[0].pos, Custom.DegToVec(UnityEngine.Random.value * 360f) * Mathf.Lerp(4f, 21f, UnityEngine.Random.value), false));
                 }
                 self.room.AddObject(new ShockWave(obj.bodyChunks[0].pos, 50f, 0.07f, 6, false));
+                //UNTRACK PEARLS OR THEY WILL RESPAWN THE NEXT CYCLE
+                if (ModManager.MMF && MMF.cfgKeyItemTracking.Value && self.room.game.session is StoryGameSession && AbstractPhysicalObject.UsesAPersistantTracker(obj.abstractPhysicalObject))
+                    (self.room.game.session as StoryGameSession).RemovePersistentTracker(obj.abstractPhysicalObject);
                 obj.Destroy();
             }
         }
+    }
+
+
+    public static bool IsStormchaserPearl(DataPearl pearl)
+    {
+        //Debug.Log("DATA PEARL: " + pearl.AbstractPearl.ToString());
+        string pearlName = pearl.AbstractPearl.dataPearlType.ToString();
+
+        if (pearlName == "Stormchaser_UW" || pearlName == "Stormchaser_SL" || pearlName == "Stormchaser_HI" || pearlName == "Stormchaser_SI")
+            return true;
+        else
+            return false;
     }
 
     private static string WinState_PassageDisplayName(On.WinState.orig_PassageDisplayName orig, WinState.EndgameID ID)
@@ -292,5 +302,109 @@ public static class StormyPassageHooks
 	{
 		public static Menu.MenuScene.SceneID Endgame_Storm = new Menu.MenuScene.SceneID("Endgame_Storm", true);
 	}
-	
+
+
+    //MAKE THE PEARLS FLOAT
+    public static int hoverSinCounter = 0;
+    public static int flyingCounter = 0;
+    public static float flying = 0f;
+
+    private static void DataPearl_Update(On.DataPearl.orig_Update orig, DataPearl self, bool eu)
+    {
+        orig(self, eu);
+        if (IsStormchaserPearl(self))
+        {
+            self.firstChunk.vel.y += self.room.gravity * flying;
+            bool flag = flyingCounter > 40;
+            if (flyingCounter > 40 || flying > 0f)
+                HoverBehavior(self, (flyingCounter > 40));
+            else if (self.firstChunk.ContactPoint.y < 0)
+            { //DON'T ASK ME HOW ALL THIS WORKS, IT'S ALL NONSENSE FROM NSH SWARMER...
+                if (HoverTile(self, self.room.GetTilePosition(self.firstChunk.pos)))
+                    flyingCounter++;
+                else
+                    flyingCounter = 0;
+            }
+            flying = Custom.LerpAndTick(flying, flag ? 1f : 0f, 0.02f, 0.025f);
+        }
+    }
+
+    public static void HoverBehavior(DataPearl self, bool increaseFly)
+    {
+        if (!self.room.readyForAI)
+        {
+            increaseFly = false;
+            return;
+        }
+        hoverSinCounter++;
+        self.firstChunk.vel *= 1f - 0.05f * flying;
+        if (!self.room.GetTile(self.firstChunk.pos + new Vector2(0f, -10f)).Solid && self.firstChunk.ContactPoint.y < 0)
+        {
+            self.firstChunk.vel.x = self.firstChunk.vel.x + Mathf.Sign(self.firstChunk.pos.x - self.room.MiddleOfTile(self.firstChunk.pos).x);
+        }
+        if (HoverTile(self, self.room.GetTilePosition(self.firstChunk.pos)))
+        {
+            int num = 8;
+            for (int i = -1; i <= 1; i++)
+            {
+                int floorAltitude = self.room.aimap.getAItile(self.firstChunk.pos + new Vector2(20f * i, 0f)).floorAltitude;
+                if (floorAltitude < 8 && floorAltitude > 0 && (floorAltitude > num || num == 8))
+                {
+                    num = floorAltitude;
+                }
+            }
+            num = Math.Min(num, self.room.water ? (self.room.GetTilePosition(self.firstChunk.pos).y - (self.room.defaultWaterLevel + 2)) : 8);
+            if (num < 8)
+            {
+                float num2 = self.room.MiddleOfTile(self.firstChunk.pos + new Vector2(0f, 20f * (2f - num))).y + 5f + Mathf.Sin(hoverSinCounter / 20f) * 6f;
+                if (self.room.GetTile(new Vector2(self.firstChunk.pos.x, self.firstChunk.pos.y + 20f)).Solid)
+                {
+                    num2 = self.room.MiddleOfTile(self.firstChunk.pos).y - 4f + Mathf.Sin(hoverSinCounter / 20f) * 4f;
+                }
+                else if (self.room.aimap.getAItile(self.firstChunk.pos).narrowSpace)
+                {
+                    num2 = self.firstChunk.pos.y + 100f;
+                }
+                self.firstChunk.vel.y = self.firstChunk.vel.y + Custom.LerpMap(self.firstChunk.pos.y, num2 - 30f, num2 + 10f, 0.3f, -0.1f) * flying;
+            }
+            else
+            {
+                increaseFly = false;
+            }
+            if (increaseFly && self.room.GetTile(self.firstChunk.pos + new Vector2(-20f, 0f)).Solid != self.room.GetTile(self.firstChunk.pos + new Vector2(20f, 0f)).Solid)
+            {
+                self.firstChunk.vel.x = self.firstChunk.vel.x + (self.room.GetTile(self.firstChunk.pos + new Vector2(20f, 0f)).Solid ? -0.1f : 0.1f) * flying;
+                return;
+            }
+        }
+    }
+
+
+    private static bool HoverTile(DataPearl self, IntVector2 tile)
+    {
+        if (!self.room.readyForAI)
+        {
+            return false;
+        }
+        if (self.room.aimap.getAItile(tile).floorAltitude > 8 && tile.y - self.room.defaultWaterLevel > 8)
+        {
+            return false;
+        }
+        if (self.room.aimap.getAItile(tile).narrowSpace)
+        {
+            for (int i = 1; i < 4; i++)
+            {
+                if (self.room.GetTile(tile.x, tile.y + i).Solid)
+                {
+                    return false;
+                }
+                if (!self.room.aimap.getAItile(tile.x, tile.y + i).narrowSpace)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
 }
