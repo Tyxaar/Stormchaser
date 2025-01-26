@@ -1,22 +1,25 @@
-TH_NC - KICK : NEUTRAL
-TH_NC - KICKROOT : NEUTRAL
-TH_NC - SHAKER : NEUTRAL 
-TH_NC - CLAPROOT : NEUTRAL
-TH_NC - BASS : DANGER
-TH_NC - BASSROOT : DANGER 
-TH_NC - ARP : DANGER 
-TH_NC - ARPROOT : DANGER 
-TH_NC - SIREN : NEUTRAL 
-TH_NC - JUNKROOT : NEUTRAL 
-TH_NC - WAWA : DANGER
-TH_NC - WAWAROOT : DANGER
-TH_NC - THUNDERCLAP : NEUTRAL
+TH_NC - CANYONARPS : NEUTRAL
+TH_NC - CANYONBASS : NEUTRAL
+TH_NC - CANYONKICK : NEUTRAL
+TH_NC - CANYONLEAD : NEUTRAL
+TH_NC - CANYONMALLET : NEUTRAL
+TH_NC - CANYONPERC : NEUTRAL
+TH_NC - CANYONPOP : NEUTRAL
+TH_NC - CANYONSHAKER : NEUTRAL
+TH_NC - CANYONSIREN : NEUTRAL
+TH_NC - CANYONSYNTH : NEUTRAL
+TH_NC - ROOTARPS : NEUTRAL
+TH_NC - ROOTBASS : NEUTRAL
+TH_NC - ROOTDRUMS : NEUTRAL
+TH_NC - ROOTKICKPERC : NEUTRAL
+TH_NC - ROOTLEAD : NEUTRAL
+TH_NC - ROOTPAD : NEUTRAL
+TH_NC - ROOTPERC : NEUTRAL
 
 
-Layer : {Northern Canyon}TH_NC - SHAKER, {Facility Roots (Northern Intake)}TH_NC - KICKROOT
-Layer : {Northern Canyon}TH_NC - BASS, {Facility Roots (Northern Intake)}TH_NC - CLAPROOT
-Layer : {Northern Canyon}TH_NC - KICK, {Facility Roots (Northern Intake)}TH_NC - BASSROOT
-Layer : {Northern Canyon}TH_NC - SIREN, {Facility Roots (Northern Intake)}TH_NC - ARPROOT
-Layer : {Northern Canyon}TH_NC - ARP, {Facility Roots (Northern Intake)}TH_NC - JUNKROOT
-Layer : {Northern Canyon}TH_NC - THUNDERCLAP, {Facility Roots (Northern Intake)}TH_NC - WAWAROOT
-Layer : {Northern Canyon}TH_NC - WAWA
+Layer : {Northern Canyon}TH_NC - CANYONKICK, {Northern Canyon}TH_NC - CANYONSHAKER, {Facility Roots (Northern Intake)}TH_NC - ROOTKICKPERC
+Layer : {Northern Canyon}TH_NC - CANYONPOP, {Northern Canyon}TH_NC - CANYONPERC, {Facility Roots (Northern Intake)}TH_NC - ROOTBASS
+Layer : {Northern Canyon}TH_NC - CANYONMALLET, {Facility Roots (Northern Intake)}TH_NC - ROOTPERC , {Facility Roots (Northern Intake)}TH_NC - ROOTDRUMS
+Layer : {Northern Canyon}TH_NC - CANYONSYNTH, {Northern Canyon}TH_NC - CANYONARPS, {Facility Roots (Northern Intake)}TH_NC - ROOTARPS, {Facility Roots (Northern Intake)}TH_NC - ROOTPAD
+Layer : {Northern Canyon}TH_NC - CANYONBASS, {Facility Roots (Northern Intake)}TH_NC - ROOTLEAD
+Layer : {Northern Canyon}TH_NC - CANYONLEAD, {Northern Canyon}TH_NC - CANYONSIREN
