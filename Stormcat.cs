@@ -111,6 +111,8 @@ namespace Stormcat
 				//A NUMBER BETWEEN -1 AND 1. CHANGES BY 0.1 EACH TIME A PLAYER HIBERNATES OR DIES
 				Debug.Log("PLAYERSKILL " + playerSkill);
 				minutes *= 1 - (playerSkill * 0.5f) ; //Custom.LerpMap(playerSkill, 0.5f, 1f, -1f, -1f, 1f); 
+				if (minutes < 2.5f)
+					minutes = 2.5f;
             }
 			orig(self, world, minutes);
 		}
