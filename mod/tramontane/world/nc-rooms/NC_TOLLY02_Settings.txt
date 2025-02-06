@@ -1,0 +1,23 @@
+Template: NONE
+DangerType: None
+CeilingDrips: 0.5
+RainIntensity: 1
+RumbleIntensity: 1
+WaveSpeed: 0.75
+WaveLength: 0.5
+WaveAmplitude: 0
+SecondWaveLength: 0.1666667
+SecondWaveAmplitude: 0
+Clouds: 1
+Grime: 0.05434782
+BkgDroneVolume: 0.3
+BkgDroneNoThreatVolume: 1
+RandomItemDensity: 0.5
+RandomItemSpearChance: 0.2
+WaterReflectionAlpha: 1
+Palette: 331
+EffectColorA: 8
+EffectColorB: 21
+Effects: BkgOnlyLightning-0.5-20-20, 
+PlacedObjects: LightFixture><633.1099><2161.643><RedLight~17.32051~-10~78, LightFixture><225.604><1948.137><RedLight~17.32051~-10~52, LightFixture><184.3564><1224.919><RedLight~17.32051~-10~22, LightFixture><760.8173><1219.331><RedLight~17.32051~-10~12, LightFixture><854.3413><1709.872><RedLight~17.32051~-10~58, LightFixture><392.839><161.5709><RedLight~17.32051~-10~96, LightFixture><804.7877><603.9464><RedLight~17.32051~-10~81, LightFixture><172.45><927.244><RedLight~17.32051~-10~43, LightFixture><188.0037><445.7><RedLight~17.32051~-10~10, LightSource><504.8738><537.9052><0.06521739~Environment~-44~391~50~86.60254~1~0~None~0~0, 
+AmbientSounds: OMNI><am_env-lightwind.ogg><732.3708><435.1594><0.5><1, OMNI><am_env-natwind.ogg><732.6502><367.0767><0.5><1, OMNI><AM_RAIN-RollingThunder.ogg><561.071><504.6607><1><1, 
