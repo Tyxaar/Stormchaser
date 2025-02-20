@@ -6,6 +6,7 @@ using SlugBase.DataTypes;
 using RWCustom;
 using Random = UnityEngine.Random;
 using System;
+using System.Text.RegularExpressions;
 
 namespace Stormcat
 {
@@ -43,6 +44,7 @@ namespace Stormcat
 			//Misc hooks
 			On.RainCycle.ctor += RainCycle_ctor;
 			On.RainWorldGame.Update += RainWorldGame_Update; //Room shaking camera transitions
+            On.RegionGate.customKarmaGateRequirements += RegionGate_customKarmaGateRequirements;
             //On.VultureAbstractAI.RoomViableRoamDestination += VultureAbstractAI_RoomViableRoamDestination; //BAN VULTURES FROM SPECIFIC ROOMS (WIP)
             
 			//Quest hooks
@@ -54,7 +56,18 @@ namespace Stormcat
 			StormyPassageHooks.Apply();
 		}
 
-        
+        private void RegionGate_customKarmaGateRequirements(On.RegionGate.orig_customKarmaGateRequirements orig, RegionGate self)
+        {
+                orig(self);
+                if ((self.room.game.session as StoryGameSession).saveStateNumber == Stormchaser)
+                {
+                    if (Regex.IsMatch(self.room.abstractRoom.name, @"\bVS\b"))
+                    {
+                        self.karmaRequirements[0] = new RegionGate.GateRequirement("Forbidden", false);
+                        self.karmaRequirements[1] = new RegionGate.GateRequirement("Forbidden", false);
+                    }
+                }
+        }
 
         private bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
 		{
