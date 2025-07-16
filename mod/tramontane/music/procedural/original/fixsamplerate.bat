@@ -1,0 +1,1 @@
+FOR /F "tokens=*" %%G IN ('dir /b *.ogg') DO ffmpeg -i "%%G" -ar 44100 "../%%~nG.ogg"
